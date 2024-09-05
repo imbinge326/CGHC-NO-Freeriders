@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 357453503}
   - component: {fileID: 357453502}
   - component: {fileID: 357453506}
+  - component: {fileID: 357453507}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -292,6 +293,20 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &357453507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357453501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a88063e619d9754fa9a44d6ee178ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportDistance: 5
+  teleportCooldown: 3
 --- !u!1 &1074612291
 GameObject:
   m_ObjectHideFlags: 0
