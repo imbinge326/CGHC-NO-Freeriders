@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &132756930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherPortal: {fileID: 1142160158}
-  requiredTag: Player
+  requiredPrefab: {fileID: 451041013256165225, guid: abc61b503458e9c4ab888578ace6ae6f, type: 3}
 --- !u!212 &132756931
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -496,7 +496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1142160158
 Transform:
   m_ObjectHideFlags: 0
@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherPortal: {fileID: 132756932}
-  requiredTag: Player
+  requiredPrefab: {fileID: 451041013256165225, guid: abc61b503458e9c4ab888578ace6ae6f, type: 3}
 --- !u!212 &1142160160
 SpriteRenderer:
   m_ObjectHideFlags: 0
