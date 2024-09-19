@@ -447,6 +447,14 @@ MonoBehaviour:
   fireballSpeed: 20
   explosionRadius: 2
   explosionDamage: 10
+  spriteRenderer: {fileID: 357453517}
+  firePointOffsetRight: {x: 0.1, y: 0}
+  firePointOffsetLeft: {x: -0.1, y: 0}
+--- !u!212 &357453517 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6421689920744576992, guid: abc61b503458e9c4ab888578ace6ae6f, type: 3}
+  m_PrefabInstance: {fileID: 4334613744202402020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &965124076
 GameObject:
   m_ObjectHideFlags: 0
