@@ -22,7 +22,7 @@ public class Invisible : MonoBehaviour
         }
     }
 
-    // 隐身并降低透明度，保持Collider开启
+    // 隐身并降低透明度
     IEnumerator BecomeInvisible()
     {
         isInvisible = true;
