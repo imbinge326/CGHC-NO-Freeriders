@@ -3,99 +3,109 @@ using System.Collections;
 
 public class ChaiEnemy : MonoBehaviour
 {
-    // 可设置的变量
     public int hp = 100; // 敌人生命值
-    public float attackSpeed = 1f; // 攻击间隔
+    public float attackSpeed = 1.5f; // 攻击间隔（1.5秒冷却时间）
     public int attackPower = 10; // 攻击力量
     public float attackRange = 1f; // 攻击范围
     public float walkSpeed = 2f; // 行走速度
     public float detectionRange = 5f; // 检测玩家的距离
-    public Transform pointA; // 巡逻点A
-    public Transform pointB; // 巡逻点B
 
-    private Transform targetPoint; // 当前目标点
     private Transform player; // 玩家对象
     private bool isChasing = false; // 是否正在追击玩家
+    private bool isAttacking = false; // 是否正在攻击
     private float lastAttackTime = 0f; // 上一次攻击的时间
     private Animator animator; // 用于播放动画
-    private SpriteRenderer spriteRenderer; // 用于显示敌人的视觉效果
 
     void Start()
     {
-        // 设置初始巡逻目标点
-        targetPoint = pointA;
-
-        // 获取玩家和动画组件
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        // 获取Animator组件（如果有）
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        // 如果敌人生命值小于等于0，敌人死亡
-        if (hp <= 0)
+        // 动态查找Player对象（每帧都查找）
+        if (player == null)
         {
-            Die();
-            return;
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            if (playerObject != null)
+            {
+                player = playerObject.transform;
+            }
         }
 
-        // 检测玩家是否在检测范围内并且玩家没有隐身
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        Invisible playerInvisible = player.GetComponent<Invisible>();
+        // 如果玩家对象未找到，直接返回
+        if (player == null) return;
 
-        if (distanceToPlayer <= detectionRange && !playerInvisible.isInvisible)
+        // 检测玩家是否在检测范围内
+        float distanceToPlayer = Mathf.Abs(player.position.x - transform.position.x); // 只计算X轴距离
+
+        if (distanceToPlayer <= detectionRange && !isAttacking)
         {
-            // 如果玩家在检测范围内并且不隐身，追击玩家
+            // 如果玩家在检测范围内，追击玩家
             isChasing = true;
             ChasePlayer();
         }
         else
         {
-            // 否则巡逻
+            // 玩家不在范围内，停止追击
             isChasing = false;
-            Patrol();
+
+            // 停止追击动画
+            if (animator != null)
+            {
+                animator.SetBool("isChasing", false);
+            }
         }
 
-        // 如果玩家在攻击范围内，攻击玩家
-        if (isChasing && distanceToPlayer <= attackRange)
+        // 如果玩家在攻击范围内并且在追击，进行攻击
+        if (isChasing && distanceToPlayer <= attackRange && !isAttacking)
         {
-            Debug.Log("Attack Player");
+            Debug.Log("Attacking!!!!!!!!!!");
+            // ***********************
             // AttackPlayer();
         }
     }
 
-    // 巡逻：敌人在两个点之间来回移动
-    void Patrol()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, walkSpeed * Time.deltaTime);
-
-        // 到达目标点时切换目标
-        if (Vector2.Distance(transform.position, targetPoint.position) < 0.1f)
-        {
-            targetPoint = (targetPoint == pointA) ? pointB : pointA;
-        }
-    }
-
-    // 追击玩家
+    // 追击玩家的逻辑
     void ChasePlayer()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, walkSpeed * Time.deltaTime);
+        // 判断玩家在左边还是右边
+        if (player.position.x < transform.position.x)
+        {
+            // 玩家在左边，向左移动
+            transform.position += Vector3.left * walkSpeed * Time.deltaTime;
+        }
+        else if (player.position.x > transform.position.x)
+        {
+            // 玩家在右边，向右移动
+            transform.position += Vector3.right * walkSpeed * Time.deltaTime;
+        }
+
+        // 播放追击动画（如果有）
+        if (animator != null)
+        {
+            animator.SetBool("isChasing", true);
+        }
     }
     /*
+     ********************************************************
     // 攻击玩家的逻辑
     void AttackPlayer()
     {
         // 检查攻击冷却时间
         if (Time.time - lastAttackTime >= attackSpeed)
         {
-            // 播放攻击动画
+            // 播放攻击动画（如果有）
             if (animator != null)
             {
-                animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack"); // 确保你的动画控制器有一个"Attack"触发器
             }
 
-            // 扣除玩家生命值
+            // 标记为正在攻击，防止敌人在攻击过程中重复追击
+            isAttacking = true;
+
+            // 扣除玩家生命值（假设玩家有一个PlayerHealth脚本）
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
@@ -104,9 +114,21 @@ public class ChaiEnemy : MonoBehaviour
 
             // 记录攻击时间
             lastAttackTime = Time.time;
+
+            // 启动冷却结束的计时器，1.5秒后恢复可以攻击状态
+            StartCoroutine(AttackCooldown());
         }
     }
     */
+    // 攻击冷却逻辑
+    IEnumerator AttackCooldown()
+    {
+        // 等待攻击冷却时间结束
+        yield return new WaitForSeconds(attackSpeed);
+
+        // 恢复可以攻击状态
+        isAttacking = false;
+    }
 
     // 敌人受到伤害
     public void TakeDamage(int damage)
@@ -115,7 +137,6 @@ public class ChaiEnemy : MonoBehaviour
         if (hp <= 0)
         {
             Die();
-
         }
     }
 
