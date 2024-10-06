@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BreakableWall : MonoBehaviour
 {
-    [SerializeField] private GameObject allowedBreaker; // Reference to the prefab that can break the wall
+    [SerializeField] private string breakerTag = "Knight"; // Reference to the prefab that can break the wall
     [SerializeField] private GameObject wallDestroyedEffect; // Optional: Effect when the wall is destroyed
 
     private bool isPlayerInRange = false;
 
     void Update()
     {
-        // Check if the allowed prefab is in range and the player presses the 'E' key
+        // Check if the allowed tag is in range and the player presses the 'E' key
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
             BreakWall();
@@ -31,19 +31,19 @@ public class BreakableWall : MonoBehaviour
         Debug.Log("Wall has been destroyed!");
     }
 
-    // Detect when the specified prefab enters the trigger zone
+    // Detect when an object with the specified tag enters the trigger zone
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == allowedBreaker)
+        if (collision.CompareTag(breakerTag))
         {
             isPlayerInRange = true; // Allowed object is in range to break the wall
         }
     }
 
-    // Detect when the specified prefab leaves the trigger zone
+    // Detect when an object with the specified tag leaves the trigger zone
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject == allowedBreaker)
+        if (collision.CompareTag(breakerTag))
         {
             isPlayerInRange = false; // Allowed object leaves, cannot break the wall
         }
