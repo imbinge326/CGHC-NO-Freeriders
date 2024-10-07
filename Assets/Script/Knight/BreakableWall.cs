@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class BreakableWall : MonoBehaviour
 {
-    [SerializeField] private string breakerTag = "Knight"; // Reference to the prefab that can break the wall
-    [SerializeField] private GameObject wallDestroyedEffect; // Optional: Effect when the wall is destroyed
+    [SerializeField] private string wallTag = "Wall"; 
+    [SerializeField] private GameObject breakEffect;  // Optional: Effect when the wall is destroyed
 
-    private bool isPlayerInRange = false;
+    private GameObject breakableWall;
 
     void Update()
     {
-        // Check if the allowed tag is in range and the player presses the 'E' key
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
+        if (breakableWall != null && Input.GetKeyDown(KeyCode.E))
         {
             BreakWall();
         }
@@ -20,32 +19,32 @@ public class BreakableWall : MonoBehaviour
 
     private void BreakWall()
     {
-        // Play destruction effect (if any)
-        if (wallDestroyedEffect != null)
+        if (breakEffect != null)
         {
-            Instantiate(wallDestroyedEffect, transform.position, Quaternion.identity);
+            Instantiate(breakEffect, breakableWall.transform.position, Quaternion.identity);
         }
 
-        // Destroy the wall
-        Destroy(gameObject);
+        Destroy(breakableWall);
         Debug.Log("Wall has been destroyed!");
+
+        breakableWall = null;
     }
 
-    // Detect when an object with the specified tag enters the trigger zone
+    // Detect when the Knight enters the trigger zone of a breakable wall
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(breakerTag))
+        if (collision.CompareTag(wallTag))
         {
-            isPlayerInRange = true; // Allowed object is in range to break the wall
+            breakableWall = collision.gameObject;  // Store reference to the breakable wall
         }
     }
 
-    // Detect when an object with the specified tag leaves the trigger zone
+    // Detect when the Knight exits the trigger zone of a breakable wall
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag(breakerTag))
+        if (collision.CompareTag(wallTag))
         {
-            isPlayerInRange = false; // Allowed object leaves, cannot break the wall
+            breakableWall = null;  // Clear the reference when leaving the wall's trigger zone
         }
     }
 }

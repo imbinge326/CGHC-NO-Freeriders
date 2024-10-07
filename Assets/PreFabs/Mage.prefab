@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 6102602017336893203}
   - component: {fileID: 5149396052496377412}
   - component: {fileID: 479851918452909030}
+  - component: {fileID: 5890539583191902102}
   m_Layer: 0
   m_Name: Mage
-  m_TagString: Mage
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +108,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -237,6 +238,19 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6421689920744576992}
   firePointOffsetRight: {x: 0.1264, y: 0}
   firePointOffsetLeft: {x: -0.1264, y: 0}
+--- !u!114 &5890539583191902102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451041013256165225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454f2a91292988449a2ba4a433f2bdc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portalTag: Portal
 --- !u!1 &458216764571772007
 GameObject:
   m_ObjectHideFlags: 0
