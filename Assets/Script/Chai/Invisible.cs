@@ -35,7 +35,7 @@ public class Invisible : MonoBehaviour
         Debug.Log("Character is now in invisible mode!");
 
         // 等待5秒（隐身持续时间）
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(time);
 
         // 2. 恢复透明度
         color.a = 1f; // 将透明度设为1，恢复可见
