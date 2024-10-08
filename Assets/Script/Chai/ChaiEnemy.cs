@@ -40,15 +40,18 @@ public class ChaiEnemy : MonoBehaviour
         // 检测玩家是否在检测范围内
         float distanceToPlayer = Mathf.Abs(player.position.x - transform.position.x); // 只计算X轴距离
 
-        if (distanceToPlayer <= detectionRange && !isAttacking)
+        // 检查玩家是否处于隐身状态
+        Invisible playerInvisible = player.GetComponent<Invisible>();
+
+        // 如果玩家在检测范围内且不处于隐身状态，追击玩家
+        if (distanceToPlayer <= detectionRange && (playerInvisible == null || !playerInvisible.isInvisible) && !isAttacking)
         {
-            // 如果玩家在检测范围内，追击玩家
             isChasing = true;
             ChasePlayer();
         }
         else
         {
-            // 玩家不在范围内，停止追击
+            // 玩家不在范围内或处于隐身状态，停止追击
             isChasing = false;
 
             // 停止追击动画
@@ -88,6 +91,7 @@ public class ChaiEnemy : MonoBehaviour
             animator.SetBool("isChasing", true);
         }
     }
+
     /*
      ********************************************************
     // 攻击玩家的逻辑
@@ -120,6 +124,7 @@ public class ChaiEnemy : MonoBehaviour
         }
     }
     */
+
     // 攻击冷却逻辑
     IEnumerator AttackCooldown()
     {
