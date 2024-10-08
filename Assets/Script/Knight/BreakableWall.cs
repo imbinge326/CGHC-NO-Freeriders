@@ -12,6 +12,7 @@ public class BreakableWall : MonoBehaviour
     void Update()
     {
         if (breakableWall != null && Input.GetKeyDown(KeyCode.E))
+
         {
             BreakWall();
         }
