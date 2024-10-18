@@ -18,7 +18,7 @@ public class InventoryManager : MonoBehaviour
         }
         Instance = this;
     }
-
+    
     public void AddItems(Items items)
     {
         itemsList.Add(items);
