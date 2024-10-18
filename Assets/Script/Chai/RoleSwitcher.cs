@@ -9,6 +9,7 @@ public class RoleSwitcher : MonoBehaviour
     private GameObject currentRole;
     private string currentRoleType; // 用于记录当前的角色类型
 
+
     void Start()
     {
         // 游戏开始时，将当前角色设置为Role1 (Knight)
@@ -37,6 +38,12 @@ public class RoleSwitcher : MonoBehaviour
             SwitchRole(role3Prefab, "Assassin");
             Debug.Log("Switched to Assassin");
         }
+    }
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject); // 保留对象在场景切换时不会被销毁
+  
     }
 
     void SwitchRole(GameObject newRolePrefab, string roleType)
