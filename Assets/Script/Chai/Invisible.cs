@@ -6,11 +6,13 @@ public class Invisible : MonoBehaviour
     public int time; // 隐身的持续时间
     public bool isInvisible = false; // 隐身模式，默认为false
     private SpriteRenderer spriteRenderer;
+    private int originalLayer; // 保存原始的Layer
 
     void Start()
     {
         // 获取角色的SpriteRenderer组件
         spriteRenderer = GetComponent<SpriteRenderer>();
+        originalLayer = gameObject.layer; // 记录玩家的原始层
     }
 
     void Update()
@@ -26,22 +28,28 @@ public class Invisible : MonoBehaviour
     IEnumerator BecomeInvisible()
     {
         isInvisible = true;
+        gameObject.layer = LayerMask.NameToLayer("IgnoreEnemy"); // 切换到 IgnoreEnemy 层
+        Debug.Log("Current Layer: " + gameObject.layer); // 打印当前层级
 
-        // 1. 使角色透明 (隐身效果)
+        // 使角色透明
         Color color = spriteRenderer.color;
-        color.a = 0.2f; // 将透明度设为0.2
+        color.a = 0.2f;
         spriteRenderer.color = color;
 
-        Debug.Log("Character is now in invisible mode!");
+        Debug.Log("角色现在处于隐身状态！");
 
-        // 等待5秒（隐身持续时间）
+        // 等待指定的时间
         yield return new WaitForSeconds(time);
 
-        // 2. 恢复透明度
-        color.a = 1f; // 将透明度设为1，恢复可见
+        // 隐身结束后，将角色的层切换回 Player 层
+        gameObject.layer = LayerMask.NameToLayer("Player");
+        Debug.Log("Current Layer: " + gameObject.layer); // 打印当前层级
+
+        // 恢复可见性
+        color.a = 1f;
         spriteRenderer.color = color;
 
         isInvisible = false;
-        Debug.Log("Character is now visible again!");
+        Debug.Log("角色现在可见！");
     }
 }
