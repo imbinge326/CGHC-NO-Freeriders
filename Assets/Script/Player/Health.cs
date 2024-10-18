@@ -1,41 +1,45 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] public float health = 100f; 
-    private float currentHealth;
+    [SerializeField] private static float sharedHealth = 100f; // 静态变量，三个Prefab共用同一个生命值
+    private float maxHealth = 100f;
 
-    
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = health;
+        // 在游戏开始时，将静态共享的健康值设定为最大生命值
+        sharedHealth = maxHealth;
     }
-    
+
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        Debug.Log(gameObject.name + " took " + damage + " damage. Remaining health: " + health);
+        sharedHealth -= damage;
+        Debug.Log(gameObject.name + " took " + damage + " damage. Remaining shared health: " + sharedHealth);
 
-        if (health <= 0)
+        if (sharedHealth <= 0)
         {
             Die();
         }
     }
-    
+
     private void Die()
     {
-        Debug.Log(gameObject.name + " has died!");
+        Debug.Log(gameObject.name + " has died! Shared health is depleted!");
 
-        // You can destroy the object or trigger an animation here
-        Destroy(gameObject);
+        // 销毁所有带有 "Player" tag 的角色，因为生命值是共享的
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            Destroy(player);
+        }
     }
 
-    // Method to return the current health (if needed for other scripts)
-    public float GetCurrentHealth()
+    // 返回当前的共享生命值
+    public float GetSharedHealth()
     {
-        return currentHealth;
+        return sharedHealth;
     }
 }

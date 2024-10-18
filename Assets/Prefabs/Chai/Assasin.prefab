@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7037296688629620865}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground Checker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2211886704761674823}
   - component: {fileID: 2394064773074730773}
   - component: {fileID: 5649620407087039031}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Assasin
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec144ece8f2f2084182485441339d4ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 1
+  time: 5
   isInvisible: 0
 --- !u!114 &2394064773074730773
 MonoBehaviour:

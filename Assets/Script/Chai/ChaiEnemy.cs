@@ -152,6 +152,21 @@ public class ChaiEnemy : MonoBehaviour
         Destroy(gameObject, 1f);
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Invisible playerInvisible = collision.gameObject.GetComponent<Invisible>();
+            if (playerInvisible != null && playerInvisible.isInvisible)
+            {
+                // 玩家处于隐身状态，忽略碰撞
+                return;
+            }
+
+            // 执行其他碰撞逻辑
+        }
+    }
+
     // 可视化检测范围和攻击范围
     void OnDrawGizmosSelected()
     {
