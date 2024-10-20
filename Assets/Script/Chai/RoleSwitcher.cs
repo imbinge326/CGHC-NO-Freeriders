@@ -9,10 +9,16 @@ public class RoleSwitcher : MonoBehaviour
     private GameObject currentRole;
     private string currentRoleType; // 用于记录当前的角色类型
 
+    // 添加静态变量来保存单例
+    private static RoleSwitcher instance;
+
     void Start()
     {
         // 游戏开始时，将当前角色设置为Role1 (Knight)
-        SwitchRole(role1Prefab, "Knight");
+        if (currentRole == null)
+        {
+            SwitchRole(role1Prefab, "Knight");
+        }
     }
 
     void Update()
@@ -27,7 +33,7 @@ public class RoleSwitcher : MonoBehaviour
         // 按2键切换到Wizard
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SwitchRole(role2Prefab, "Wizard");
+            SwitchRole(role2Prefab, "Mage");
             Debug.Log("Switched to Wizard");
         }
 
@@ -37,6 +43,20 @@ public class RoleSwitcher : MonoBehaviour
             SwitchRole(role3Prefab, "Assassin");
             Debug.Log("Switched to Assassin");
         }
+    }
+
+    public void Awake()
+    {
+        // 检查是否已有实例，如果存在则销毁新对象
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);  // 防止重复生成
+            return;
+        }
+
+        // 如果是唯一实例，保留并标记为不销毁
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     void SwitchRole(GameObject newRolePrefab, string roleType)
@@ -57,30 +77,6 @@ public class RoleSwitcher : MonoBehaviour
 
         // 更新当前角色类型
         currentRoleType = roleType;
-
-        // 可以在这里根据角色类型应用不同的逻辑
-        HandleRoleSpecificLogic();
-    }
-
-    // 根据不同的角色类型设置逻辑
-    void HandleRoleSpecificLogic()
-    {
-        switch (currentRoleType)
-        {
-            case "Knight":
-                // 设定Knight的技能或其他功能
-                Debug.Log("Knight can break the wall");
-                break;
-
-            case "Wizard":
-                // 设定Wizard的技能或其他功能
-                Debug.Log("Wizard can teleport.");
-                break;
-
-            case "Assassin":
-                // 设定Assassin的技能或其他功能
-                Debug.Log("Assassin can hide");
-                break;
-        }
+        DontDestroyOnLoad (currentRole);  
     }
 }
