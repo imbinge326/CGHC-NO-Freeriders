@@ -33,7 +33,7 @@ public class RoleSwitcher : MonoBehaviour
         // 按2键切换到Wizard
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SwitchRole(role2Prefab, "Wizard");
+            SwitchRole(role2Prefab, "Mage");
             Debug.Log("Switched to Wizard");
         }
 
@@ -77,30 +77,6 @@ public class RoleSwitcher : MonoBehaviour
 
         // 更新当前角色类型
         currentRoleType = roleType;
-
-        // 根据角色类型执行特定逻辑
-        HandleRoleSpecificLogic();
-    }
-
-    // 根据不同的角色类型设置逻辑
-    void HandleRoleSpecificLogic()
-    {
-        switch (currentRoleType)
-        {
-            case "Knight":
-                // 设定Knight的技能或其他功能
-                Debug.Log("Knight can break the wall");
-                break;
-
-            case "Wizard":
-                // 设定Wizard的技能或其他功能
-                Debug.Log("Wizard can teleport.");
-                break;
-
-            case "Assassin":
-                // 设定Assassin的技能或其他功能
-                Debug.Log("Assassin can hide");
-                break;
-        }
+        DontDestroyOnLoad (currentRole);  
     }
 }
