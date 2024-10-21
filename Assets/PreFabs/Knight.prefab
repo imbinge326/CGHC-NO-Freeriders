@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: -7349808902082173875}
   - component: {fileID: 3449054691566336795}
   - component: {fileID: 6704224298232127852}
+  - component: {fileID: 3713417590399674132}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -212,7 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2f84017672ec54ca7c33ce70c41cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
 --- !u!61 &-7349808902082173875
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -288,3 +288,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallTag: Wall
   breakEffect: {fileID: 0}
+--- !u!114 &3713417590399674132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4699075559353984421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48ac4ebfa3c47f458a347230aad7247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useReturnPoint: 0
