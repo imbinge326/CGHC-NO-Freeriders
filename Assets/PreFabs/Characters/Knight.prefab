@@ -74,11 +74,11 @@ GameObject:
   - component: {fileID: 2692199112287140695}
   - component: {fileID: 4914354155977375593}
   - component: {fileID: 433877657838503802}
-  - component: {fileID: 667910736679392944}
   - component: {fileID: 3449054691566336795}
   - component: {fileID: 6704224298232127852}
   - component: {fileID: 4008336065066893711}
   - component: {fileID: 197366040609629003}
+  - component: {fileID: -3015109767201565117}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -205,18 +205,6 @@ MonoBehaviour:
     m_Bits: 512
   wallRaycastDistance: 1
   groundRaycastDistance: 0.8
---- !u!114 &667910736679392944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4699075559353984421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f2f84017672ec54ca7c33ce70c41cae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3449054691566336795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,3 +291,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.10499999
+--- !u!114 &-3015109767201565117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4699075559353984421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48ac4ebfa3c47f458a347230aad7247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useReturnPoint: 0

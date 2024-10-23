@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2211886704761674823}
   - component: {fileID: 2394064773074730773}
   - component: {fileID: 5649620407087039031}
-  - component: {fileID: -1441855918805305619}
   - component: {fileID: -2977539451940949732}
   m_Layer: 3
   m_Name: Assasin
@@ -199,18 +198,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-1441855918805305619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8786835175176256531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f2f84017672ec54ca7c33ce70c41cae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-2977539451940949732
 MonoBehaviour:
   m_ObjectHideFlags: 0
