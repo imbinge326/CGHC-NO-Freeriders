@@ -28,8 +28,9 @@ public class InventoryManager : MonoBehaviour
         DontDestroyOnLoad(inventoryUI);
         DontDestroyOnLoad(eventSystem);
 
-        // 确保只存在一个 EventSystem
+        // 确保只存在一个 EventSystem 和 InventoryUI
         HandleEventSystem();
+        HandleInventoryUI();
     }
 
     private void OnEnable()
@@ -46,12 +47,16 @@ public class InventoryManager : MonoBehaviour
     // 当场景加载完成时，确保 Inventory UI 是开启状态，并且处理 EventSystem
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (inventoryUI != null)
+        // 确保 inventoryUI 被激活
+        if (inventoryUI != null && !inventoryUI.activeInHierarchy)
         {
             inventoryUI.SetActive(true); // 激活 Inventory UI
+            ActivateAllChildren(inventoryUI); // 确保所有子对象也被激活
         }
 
+        // 处理 EventSystem 和 InventoryUI，避免重复
         HandleEventSystem();
+        HandleInventoryUI();
     }
 
     // 确保只存在一个 EventSystem
@@ -73,16 +78,47 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    // 确保只存在一个 InventoryUI
+    private void HandleInventoryUI()
+    {
+        // 查找当前场景中的所有 InventoryUI
+        InventoryManager[] inventoryManagers = FindObjectsOfType<InventoryManager>();
+
+        // 如果存在多个 InventoryUI，则销毁重复的
+        if (inventoryManagers.Length > 1)
+        {
+            foreach (var im in inventoryManagers)
+            {
+                if (im != this)
+                {
+                    Destroy(im.inventoryUI);
+                }
+            }
+        }
+    }
+
+    // 递归激活所有子对象
+    private void ActivateAllChildren(GameObject obj)
+    {
+        foreach (Transform child in obj.transform)
+        {
+            child.gameObject.SetActive(true);
+            ActivateAllChildren(child.gameObject); // 递归处理所有子对象
+        }
+    }
+
     // 添加物品到库存列表
     public void AddItems(Items items)
     {
         itemsList.Add(items);
+        ListItems(); // 每次添加物品后更新UI
     }
 
     // 从库存列表中移除物品
     public void RemoveItems(Items items)
     {
         itemsList.Remove(items);
+        ListItems(); // 每次移除物品后更新UI
     }
 
     // 列出当前库存中的物品
