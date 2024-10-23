@@ -7,11 +7,17 @@ public class Fireball : MonoBehaviour
     [SerializeField] private float explosionRadius = 2f;
     [SerializeField] private float explosionDamage = 50f;
     [SerializeField] private GameObject explosionEffect;
+    [SerializeField] private float lifetime = 5f;  // Time before the fireball is destroyed
 
     public void Setup(float radius, float damage)
     {
         explosionRadius = radius;
         explosionDamage = damage;
+    }
+
+    void Start()
+    {
+        Destroy(gameObject, lifetime);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -51,7 +57,7 @@ public class Fireball : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
+        Destroy(gameObject);  // Destroy the fireball after explosion
     }
 
     void OnDrawGizmosSelected()
