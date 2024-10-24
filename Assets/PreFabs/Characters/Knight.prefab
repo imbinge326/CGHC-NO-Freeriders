@@ -205,7 +205,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   wallRaycastDistance: 1
-  groundRaycastDistance: 0.8
+  groundRaycastDistance: 1
 --- !u!114 &3449054691566336795
 MonoBehaviour:
   m_ObjectHideFlags: 0
