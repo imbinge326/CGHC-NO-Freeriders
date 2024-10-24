@@ -61,7 +61,14 @@ public class RoleSwitcher : MonoBehaviour
 
     void SwitchRole(GameObject newRolePrefab, string roleType)
     {
-        // 记录当前位置和旋转信息
+        // 如果没有新的角色预制件，不进行任何操作
+        if (newRolePrefab == null)
+        {
+            Debug.LogError("New role prefab is null!");
+            return;
+        }
+
+        // 记录当前位置和旋转信息，避免传送回 RoleSwitcher 位置
         Vector3 position = currentRole != null ? currentRole.transform.position : transform.position;
         Quaternion rotation = currentRole != null ? currentRole.transform.rotation : transform.rotation;
 
@@ -71,12 +78,18 @@ public class RoleSwitcher : MonoBehaviour
             Destroy(currentRole);
         }
 
-        // 实例化新角色，并设置为当前角色
+        // 确保预制件成功生成
         currentRole = Instantiate(newRolePrefab, position, rotation);
+        if (currentRole == null)
+        {
+            Debug.LogError("Failed to instantiate role prefab!");
+            return;
+        }
+
         currentRole.tag = "Player"; // 确保新角色也有"Player"标签
 
         // 更新当前角色类型
         currentRoleType = roleType;
-        DontDestroyOnLoad (currentRole);  
+        DontDestroyOnLoad(currentRole);
     }
 }

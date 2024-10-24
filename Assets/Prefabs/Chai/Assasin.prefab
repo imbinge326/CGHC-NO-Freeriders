@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 2394064773074730773}
   - component: {fileID: 5649620407087039031}
   - component: {fileID: -1441855918805305619}
-  - component: {fileID: -2977539451940949732}
+  - component: {fileID: -2104286356513805199}
   m_Layer: 3
   m_Name: Assasin
   m_TagString: Player
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2f84017672ec54ca7c33ce70c41cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-2977539451940949732
+--- !u!114 &-2104286356513805199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
