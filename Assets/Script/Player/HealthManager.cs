@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-    public HealthManager Instance;
+    private static HealthManager Instance;
     [SerializeField] private static float sharedHealth = 100f; // 静态变量，三个Prefab共用同一个生命值
     private float maxHealth = 100f;
     private HealthBar healthBar;
@@ -31,7 +31,7 @@ public class HealthManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             TakeDamage(10);
         }
