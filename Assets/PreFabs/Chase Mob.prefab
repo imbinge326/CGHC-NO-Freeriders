@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2640624006215101619}
   - component: {fileID: 8133869224277781653}
   - component: {fileID: -2147046630004300754}
+  - component: {fileID: -1253642041939802346}
   m_Layer: 0
   m_Name: Chase Mob
   m_TagString: Untagged
@@ -157,11 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cbd82894e771d4aade93bb2d13116e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  projectilePrefab: {fileID: 8348934520280199906, guid: 4ff106d5800330442b715c5e0d108eda, type: 3}
-  minShootInterval: 2
-  maxShootInterval: 5
-  projectileForce: 10
+  projectilePrefab: {fileID: 227762527029157611, guid: 481529ca6140aa34880636abdaa62eb6, type: 3}
+  minShootInterval: 4
+  maxShootInterval: 7
+  projectileForce: 20
   topShootPoint: {fileID: 2150438150984944549}
   middleShootPoint: {fileID: 3824429825581525166}
   bottomShootPoint: {fileID: 5506552341582810069}
@@ -192,6 +192,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-1253642041939802346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670283701083994854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de8cde09a9ae22e449804f4b37dad6f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  returnToOrigin: 0
 --- !u!1 &4130851904754249316
 GameObject:
   m_ObjectHideFlags: 0

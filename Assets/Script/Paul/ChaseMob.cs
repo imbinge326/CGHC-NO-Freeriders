@@ -6,8 +6,6 @@ public class MobController : MonoBehaviour
 {
     [Header("Mob Settings")]
     [SerializeField]
-    private float speed = 5f;                     // Speed of the mob
-    [SerializeField]
     private GameObject projectilePrefab;            // Projectile prefab
     [SerializeField]
     private float minShootInterval = 1f;           // Minimum interval between shots
@@ -24,7 +22,6 @@ public class MobController : MonoBehaviour
     [SerializeField]
     private Transform bottomShootPoint;             // Bottom shooting point
 
-    private Rigidbody2D rb;
     private Animator mobAnimator;
 
     void Start()
@@ -33,7 +30,6 @@ public class MobController : MonoBehaviour
         transform.eulerAngles = new Vector3(0, 180, 0);
 
         // Get base components
-        rb = GetComponent<Rigidbody2D>();
         mobAnimator = GetComponent<Animator>();
 
         // Play Running Animation
@@ -43,18 +39,6 @@ public class MobController : MonoBehaviour
         StartCoroutine(ShootRandomly(topShootPoint));
         StartCoroutine(ShootRandomly(middleShootPoint));
         StartCoroutine(ShootRandomly(bottomShootPoint));
-    }
-
-    void Update()
-    {
-        // Move the mob to the right at a constant speed
-        MoveRight();
-    }
-
-    // Move the mob right at the set speed
-    void MoveRight()
-    {
-        rb.velocity = new Vector2(speed, 0);  // Set velocity to move right
     }
 
     // Coroutine to shoot at random intervals from a specific shoot point
@@ -101,17 +85,6 @@ public class MobController : MonoBehaviour
 
         // Apply force to the right
         projectileRb.AddForce(Vector2.right * projectileForce, ForceMode2D.Impulse);
-
-        // Change a variable on the projectile (e.g., lifetime)
-        Fireball fireballScript = projectile.GetComponent<Fireball>();
-        if (fireballScript != null)
-        {
-            fireballScript.lifetime = 5;  // Set the lifetime for the fireball
-        }
-        else
-        {
-            Debug.LogError("Projectile script not found on the projectile prefab.");
-        }
     }
 
     // Make sure the mob ignores collisions (like phasing through objects)

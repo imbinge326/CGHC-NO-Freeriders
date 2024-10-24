@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FinalLevelManager : MonoBehaviour
@@ -9,6 +10,9 @@ public class FinalLevelManager : MonoBehaviour
 
     [SerializeField]
     private GameObject chaseMobSpawnPoint;
+
+    [SerializeField]
+    private Transform[] targetPoints; // Array of target points
 
     private void Awake()
     {
@@ -30,6 +34,14 @@ public class FinalLevelManager : MonoBehaviour
             return;
         }
 
-        Instantiate(chaseMobPrefab, chaseMobSpawnPoint.transform.position, Quaternion.identity);
+        GameObject chaseMob = Instantiate(chaseMobPrefab, chaseMobSpawnPoint.transform.position, Quaternion.identity);
+
+        // Get the PointMover component and set the target points
+        FollowPath pointMover = chaseMob.GetComponent<FollowPath>();
+        if (pointMover != null)
+        {
+            List<Transform> targetPointsList = new List<Transform>(targetPoints); // Convert array to list
+            pointMover.SetTargetPoints(targetPointsList); // Assign the target points
+        }
     }
 }
