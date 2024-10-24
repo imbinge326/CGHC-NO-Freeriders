@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 999595723482601595}
   m_Layer: 0
   m_Name: breakableWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

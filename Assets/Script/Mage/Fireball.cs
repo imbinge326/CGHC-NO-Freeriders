@@ -7,7 +7,7 @@ public class Fireball : MonoBehaviour
     [SerializeField] private float explosionRadius = 2f;
     [SerializeField] private float explosionDamage = 50f;
     [SerializeField] private GameObject explosionEffect;
-    [SerializeField] private float lifetime = 5f;  // Time before the fireball is destroyed
+    public float lifetime = 5f; // Public to be accessible for Mob Chase Script
 
     public void Setup(float radius, float damage)
     {
