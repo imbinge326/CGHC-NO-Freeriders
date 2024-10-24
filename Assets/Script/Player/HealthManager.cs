@@ -10,6 +10,7 @@ public class HealthManager : MonoBehaviour
     private HealthBar healthBar;
 
     // Start is called before the first frame update
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -18,8 +19,8 @@ public class HealthManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
+
     void Start()
     {
         healthBar = GameObject.Find("Health Bar").GetComponent<HealthBar>();

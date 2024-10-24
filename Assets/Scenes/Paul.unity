@@ -520,8 +520,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 971312328610494745, guid: cde18e3fe020d974795d6ed606585440, type: 3}
       propertyPath: m_Name
-      value: portal (1)
+      value: Portal 1 To
       objectReference: {fileID: 0}
+    - target: {fileID: 7025227614323323035, guid: cde18e3fe020d974795d6ed606585440, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 488467134}
     - target: {fileID: 9192435951039557222, guid: cde18e3fe020d974795d6ed606585440, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.9576397
@@ -31310,8 +31314,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 971312328610494745, guid: cde18e3fe020d974795d6ed606585440, type: 3}
       propertyPath: m_Name
-      value: portal
+      value: Portal 1 From
       objectReference: {fileID: 0}
+    - target: {fileID: 7025227614323323035, guid: cde18e3fe020d974795d6ed606585440, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 852551917}
     - target: {fileID: 9192435951039557222, guid: cde18e3fe020d974795d6ed606585440, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.959407
@@ -78527,7 +78535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2f84017672ec54ca7c33ce70c41cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Instance: {fileID: 0}
 --- !u!4 &1511635360
 Transform:
   m_ObjectHideFlags: 0
