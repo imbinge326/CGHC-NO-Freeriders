@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    [SerializeField] private Vector2[] waypoints; // Coordinates the platform will move between
+    [SerializeField] private Vector2[] localWaypoints; // Coordinates of the waypoints relative to the platform's start position
+    private Vector2[] globalWaypoints; // World-space coordinates of the waypoints
     [SerializeField] private float platformSpeed = 2f; // Speed of platform movement
     private int currentWaypointIndex = 0; // Index to track which waypoint to move towards
     private Vector3 previousPosition; // Store the platform's previous position for calculating delta
+
+    public bool startMoving = false; // Control to start/stop platform movement
 
     private bool playerIsOnPlatform = false; // Is the player standing on the platform
     private GameObject player; // Reference to the player GameObject
@@ -15,20 +18,29 @@ public class MovingPlatform : MonoBehaviour
 
     private void Start()
     {
-        previousPosition = transform.position; // Initialize previous position
+        // Initialize previous position
+        previousPosition = transform.position;
+
+        // Convert local waypoints to global positions at the start
+        globalWaypoints = new Vector2[localWaypoints.Length];
+        for (int i = 0; i < localWaypoints.Length; i++)
+        {
+            globalWaypoints[i] = transform.TransformPoint(localWaypoints[i]);
+        }
     }
 
     private void Update()
     {
-        if (waypoints.Length == 0) return;
+        if (!startMoving || globalWaypoints.Length == 0) return; // Only move if startMoving is true
 
         // Move the platform towards the current waypoint
-        transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex], platformSpeed * Time.deltaTime);
+        Vector2 targetPosition = globalWaypoints[currentWaypointIndex];
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, platformSpeed * Time.deltaTime);
 
         // If platform reaches the current waypoint, update to the next waypoint
-        if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex]) < 0.1f)
+        if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
         {
-            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length; // Loop back to the first waypoint after reaching the last one
+            currentWaypointIndex = (currentWaypointIndex + 1) % globalWaypoints.Length; // Loop back to the first waypoint after reaching the last one
         }
     }
 
@@ -73,9 +85,11 @@ public class MovingPlatform : MonoBehaviour
         // Visualize the waypoints in the Scene view
         Gizmos.color = Color.yellow;
 
-        for (int i = 0; i < waypoints.Length; i++)
+        // Convert and draw waypoints as if they are local to the platform, but in world space
+        for (int i = 0; i < localWaypoints.Length; i++)
         {
-            Gizmos.DrawSphere(waypoints[i], 0.2f);
+            Vector3 globalWaypointPosition = Application.isPlaying ? globalWaypoints[i] : transform.TransformPoint(localWaypoints[i]);
+            Gizmos.DrawSphere(globalWaypointPosition, 0.2f);
         }
     }
 }
