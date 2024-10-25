@@ -11,7 +11,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private float wallRaycastDistance = 1f; // Distance to check for walls
-    [SerializeField] private float groundRaycastDistance = 0.8f; // Distance to check for ground
+    [SerializeField] private float groundRaycastDistance = 0f; // Distance to check for ground
+
+
     private bool isTouchingWall;
     private bool isGrounded;
 
@@ -39,7 +41,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Prevent movement if touching a wall and trying to move in the direction of the wall
-        if (!isTouchingWall)
+        if (isGrounded && isTouchingWall)
+        {
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        }
+        else if (!isTouchingWall)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         }

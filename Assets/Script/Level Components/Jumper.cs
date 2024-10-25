@@ -6,6 +6,13 @@ public class Jumper : MonoBehaviour
 {
     [SerializeField] private float jumpForce = 10f; // The upward force when the player lands on the jumper
 
+    private Animator jumperAnimator;
+
+    private void Start()
+    {
+        jumperAnimator = GetComponent<Animator>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the player landed on the jumper
@@ -17,6 +24,9 @@ public class Jumper : MonoBehaviour
             {
                 // Apply an upward force to the player
                 playerRb.velocity = new Vector2(playerRb.velocity.x, jumpForce);
+
+                // Play Animation
+                jumperAnimator.SetTrigger("Jumper");
             }
         }
     }
