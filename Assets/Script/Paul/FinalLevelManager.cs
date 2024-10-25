@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FinalLevelManager : MonoBehaviour
@@ -13,6 +15,9 @@ public class FinalLevelManager : MonoBehaviour
 
     [SerializeField]
     private Transform[] targetPoints; // Array of target points
+
+    [SerializeField]
+    private GameObject bossMessage;
 
     private void Awake()
     {
@@ -43,5 +48,10 @@ public class FinalLevelManager : MonoBehaviour
             List<Transform> targetPointsList = new List<Transform>(targetPoints); // Convert array to list
             pointMover.SetTargetPoints(targetPointsList); // Assign the target points
         }
+    }
+
+    public void TriggerBossFight()
+    {
+        bossMessage.SetActive(true);
     }
 }

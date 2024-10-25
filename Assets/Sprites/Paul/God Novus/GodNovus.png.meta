@@ -1,0 +1,1302 @@
+fileFormatVersion: 2
+guid: a73768981b4f3324fb2226569e6e2c15
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 384
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GodNovus_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8920070a9879efe49a770bd67ba4f7cf
+      internalID: -682748173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1920
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed299be873c2e1541ac9a44b7d32e13c
+      internalID: -564800197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1920
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cd76672259d9c04585df5c7bbc74765
+      internalID: -1964079067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_3
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1920
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8ce3a2542d9bd54ab1f2f817bad03b5
+      internalID: -918518541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_4
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1920
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85a0d4b21a74aab4b80490a8342cf324
+      internalID: 1456470261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_5
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1920
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673672c6d19559f489e372d74a1df08a
+      internalID: -1677891273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_6
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1920
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c95e941ea8f93b48a7f375758a5f4bc
+      internalID: -24180317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_7
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1920
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5724ae457def6a746ba4a52ca4342ef3
+      internalID: 1887498674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_8
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1920
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08891da1b3f5fc440b345510bdd335be
+      internalID: -101933480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a30cf13366b6ad4eaec76775ed0bf63
+      internalID: 1821220859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1536
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 256e410677850644090e2d70a33f43f1
+      internalID: -516554705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7419edf54bb369645a407647bbb14cbc
+      internalID: 1211836853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_12
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1536
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa77fc264cba4b44a51a323b28d404f
+      internalID: 601347735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e557e6a8a60b984e9858399648c4f34
+      internalID: -1607503319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_14
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1536
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b85b480170c8ed40840ced5822f3cd2
+      internalID: 346558078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_15
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1536
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85dd39d17aa2b364790b0b5fc0682ad7
+      internalID: 413894520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_16
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1536
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2800461991a2ea44397e31ccd34a9a18
+      internalID: -1727402983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_17
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1536
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b90be44961d4b044bbd6a07c6137555d
+      internalID: -2082655200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd693a66af8da924aa64387cda88dcdb
+      internalID: 1059043145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_19
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c0414176e3fd4f4ea1e68e22fc292ee
+      internalID: -278381191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_20
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1152
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a252550b6cb50d140ab3a3c6e4da281f
+      internalID: 688571626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_21
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1152
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9c19027ae5ed1246a059bf0782a94d8
+      internalID: -1216386539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_22
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1152
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 440171774326c864c9f8b05ef10756ee
+      internalID: -144830925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_23
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1152
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 743b860822445d545965939eae03a94b
+      internalID: 1225194458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_24
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1152
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff28cb0ab0202b245bd383e58fd2dc3a
+      internalID: -487171663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_25
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 1152
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa999d69a5eba345afb05a936afe332
+      internalID: -1229440629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_26
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1152
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8efb501c67aaf945a82fbd1092bc1b6
+      internalID: 40451035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2653467474b81d349a4802baad5eb23c
+      internalID: 1325145386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_28
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceea0cde8d18d1f4d94e9bb7a7329f1e
+      internalID: 1626030415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_29
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8bdfb131f3ea340879c729490a3dd1
+      internalID: -771000671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_30
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 768
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c29212b0499dd4b893174fde349fea
+      internalID: -1356565904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_31
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b09867124b79d994799206bd534a6e50
+      internalID: -947181443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_32
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d272625f4d99f7945829bda460aab574
+      internalID: -1390006966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_33
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 768
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30464466ba8da0a4eaa7eda7fc4c3701
+      internalID: 1775964485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_34
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 768
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf670bd8ed05b24b801b0c58ff0e0f9
+      internalID: -1023359749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_35
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 768
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cd0c66d49a45ef4fa51da7849835baf
+      internalID: -1285926633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb989420411db834196f549337a5ecd2
+      internalID: -1997518874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_37
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d14ee134accbe48a5ae00adb19f5a8
+      internalID: -241843279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_38
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c287a5d5efbd8c747b0fc0da74d86204
+      internalID: 1486731598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_39
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 384
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 607400710f17d93498b1cd0aaa3f40ed
+      internalID: 1640871753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_40
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 384
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc51641c73e9ba42af4df8697f7867d
+      internalID: -697480620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_41
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 384
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac66c6961312c544e8937316c9a4601a
+      internalID: -1813397735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_42
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 384
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e90a588b48cb58a4d876998926f6fa81
+      internalID: -2087688247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_43
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 384
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71b6f0e9b69cd4642a74034663c554e7
+      internalID: 1624442572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_44
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 384
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ef0ac69b01f3e5439b448c7db836231
+      internalID: 1664348377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 965b03bd2b443ac4abc583d782c14605
+      internalID: 1038877605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_46
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71016cc7498ade04a9e1d0d82ac7cb6b
+      internalID: -1288816329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_47
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f7a5201d40332040aa5335dcb2ba730
+      internalID: 1887524355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_48
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc72ac6965dfad74ebed1e448bab8e10
+      internalID: 299065105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_49
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 616cac6b7e17bde408b5af7782771dfd
+      internalID: -302025527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_50
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29321bd4a946aab4e845306185bd20fa
+      internalID: -567525122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_51
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d19149a715194374f85d6f4864f7a1d3
+      internalID: -1957726051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_52
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e00c5fd89695e4f8b5e4df8ce48909
+      internalID: -679455653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GodNovus_53
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 384
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bcf60f8597d14341b5c9ae969fc37b4
+      internalID: -795619533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GodNovus_0: -682748173
+      GodNovus_1: -564800197
+      GodNovus_10: -516554705
+      GodNovus_11: 1211836853
+      GodNovus_12: 601347735
+      GodNovus_13: -1607503319
+      GodNovus_14: 346558078
+      GodNovus_15: 413894520
+      GodNovus_16: -1727402983
+      GodNovus_17: -2082655200
+      GodNovus_18: 1059043145
+      GodNovus_19: -278381191
+      GodNovus_2: -1964079067
+      GodNovus_20: 688571626
+      GodNovus_21: -1216386539
+      GodNovus_22: -144830925
+      GodNovus_23: 1225194458
+      GodNovus_24: -487171663
+      GodNovus_25: -1229440629
+      GodNovus_26: 40451035
+      GodNovus_27: 1325145386
+      GodNovus_28: 1626030415
+      GodNovus_29: -771000671
+      GodNovus_3: -918518541
+      GodNovus_30: -1356565904
+      GodNovus_31: -947181443
+      GodNovus_32: -1390006966
+      GodNovus_33: 1775964485
+      GodNovus_34: -1023359749
+      GodNovus_35: -1285926633
+      GodNovus_36: -1997518874
+      GodNovus_37: -241843279
+      GodNovus_38: 1486731598
+      GodNovus_39: 1640871753
+      GodNovus_4: 1456470261
+      GodNovus_40: -697480620
+      GodNovus_41: -1813397735
+      GodNovus_42: -2087688247
+      GodNovus_43: 1624442572
+      GodNovus_44: 1664348377
+      GodNovus_45: 1038877605
+      GodNovus_46: -1288816329
+      GodNovus_47: 1887524355
+      GodNovus_48: 299065105
+      GodNovus_49: -302025527
+      GodNovus_5: -1677891273
+      GodNovus_50: -567525122
+      GodNovus_51: -1957726051
+      GodNovus_52: -679455653
+      GodNovus_53: -795619533
+      GodNovus_6: -24180317
+      GodNovus_7: 1887498674
+      GodNovus_8: -101933480
+      GodNovus_9: 1821220859
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

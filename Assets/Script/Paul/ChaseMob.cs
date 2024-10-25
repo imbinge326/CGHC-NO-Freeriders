@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobController : MonoBehaviour
+public class ChaseMob : MonoBehaviour
 {
     private Animator mobAnimator;
     private FollowPath followPathScript;
