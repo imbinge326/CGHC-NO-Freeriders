@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI; // Make sure to include this for UI elements
+using System.Collections; // Include this for the coroutine
 
 public class FinalLevelManager : MonoBehaviour
 {
@@ -17,7 +20,7 @@ public class FinalLevelManager : MonoBehaviour
     private Transform[] targetPoints; // Array of target points
 
     [SerializeField]
-    private GameObject bossMessage;
+    private Image fadeImage; // Assign your FadeImage here in the Inspector
 
     private void Awake()
     {
@@ -52,6 +55,27 @@ public class FinalLevelManager : MonoBehaviour
 
     public void TriggerBossFight()
     {
-        bossMessage.SetActive(true);
+        StartCoroutine(FadeAndLoadScene("BossCutscene"));
+    }
+
+    private IEnumerator FadeAndLoadScene(string sceneName)
+    {
+        // Fade to black
+        float fadeDuration = 1f; // Duration of the fade
+        float elapsed = 0f;
+
+        // Set initial color to transparent
+        fadeImage.color = new Color(0, 0, 0, 0);
+
+        // Fade in
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            fadeImage.color = new Color(0, 0, 0, Mathf.Clamp01(elapsed / fadeDuration));
+            yield return null;
+        }
+
+        // Load the new scene
+        SceneManager.LoadScene(sceneName);
     }
 }
