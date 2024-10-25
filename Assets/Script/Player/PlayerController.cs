@@ -7,8 +7,7 @@ public class PlayerController : MonoBehaviour
 
     // 用于区分玩家是否是从上一场景或下一场景传送过来的
     public bool useReturnPoint = false;
-
-    private void OnEnable()
+       private void OnEnable()
     {
         // 订阅场景加载事件
         SceneManager.sceneLoaded += OnSceneLoaded;
