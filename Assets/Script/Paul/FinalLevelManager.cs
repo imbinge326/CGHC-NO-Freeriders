@@ -22,6 +22,9 @@ public class FinalLevelManager : MonoBehaviour
     [SerializeField]
     private Image fadeImage; // Assign your FadeImage here in the Inspector
 
+    private GameObject player;
+    private Vector3 playerPosition; // Variable to hold the player's position
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -31,6 +34,36 @@ public class FinalLevelManager : MonoBehaviour
         else
         {
             Instance = this; // Set singleton instance
+        }
+
+        // Find player reference in the scene
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            // Store the player's initial position
+            playerPosition = player.transform.position;
+        }
+
+        StartCoroutine(UnfreezePlayer());
+    }
+
+    private IEnumerator UnfreezePlayer()
+    {
+        while (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            yield return null; // Wait for the next frame
+        }
+
+        Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
+        if (playerRb != null)
+        {
+            playerRb.constraints = RigidbodyConstraints2D.None; // Unfreeze the player
+            playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        else
+        {
+            Debug.LogWarning("Player does not have a Rigidbody2D component.");
         }
     }
 
@@ -44,30 +77,32 @@ public class FinalLevelManager : MonoBehaviour
 
         GameObject chaseMob = Instantiate(chaseMobPrefab, chaseMobSpawnPoint.transform.position, Quaternion.identity);
 
-        // Get the PointMover component and set the target points
         FollowPath pointMover = chaseMob.GetComponent<FollowPath>();
         if (pointMover != null)
         {
-            List<Transform> targetPointsList = new List<Transform>(targetPoints); // Convert array to list
-            pointMover.SetTargetPoints(targetPointsList); // Assign the target points
+            List<Transform> targetPointsList = new List<Transform>(targetPoints);
+            pointMover.SetTargetPoints(targetPointsList);
         }
     }
 
     public void TriggerBossFight()
     {
+        // Save the player's current position before loading the cutscene
+        if (player != null)
+        {
+            playerPosition = player.transform.position; // Save player position
+        }
+
         StartCoroutine(FadeAndLoadScene("BossCutscene"));
     }
 
     private IEnumerator FadeAndLoadScene(string sceneName)
     {
-        // Fade to black
         float fadeDuration = 1f; // Duration of the fade
         float elapsed = 0f;
 
-        // Set initial color to transparent
         fadeImage.color = new Color(0, 0, 0, 0);
 
-        // Fade in
         while (elapsed < fadeDuration)
         {
             elapsed += Time.deltaTime;
@@ -75,7 +110,6 @@ public class FinalLevelManager : MonoBehaviour
             yield return null;
         }
 
-        // Load the new scene
         SceneManager.LoadScene(sceneName);
     }
 }
