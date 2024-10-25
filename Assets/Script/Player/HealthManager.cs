@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-    private static HealthManager Instance;
+    public static HealthManager Instance;
     [SerializeField] private static float sharedHealth = 100f; // 静态变量，三个Prefab共用同一个生命值
     private float maxHealth = 100f;
     private HealthBar healthBar;

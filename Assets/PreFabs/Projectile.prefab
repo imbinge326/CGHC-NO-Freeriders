@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 0.7
-  explosionDamage: 50
+  explosionDamage: 10
   explosionEffect: {fileID: 0}
   lifetime: 5
+  targetTag: Player

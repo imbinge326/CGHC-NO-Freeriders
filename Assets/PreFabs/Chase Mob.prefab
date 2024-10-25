@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 8133869224277781653}
   - component: {fileID: -2147046630004300754}
   - component: {fileID: -1253642041939802346}
+  - component: {fileID: 2772415808307387040}
   m_Layer: 0
   m_Name: Chase Mob
   m_TagString: Untagged
@@ -165,6 +166,9 @@ MonoBehaviour:
   topShootPoint: {fileID: 2150438150984944549}
   middleShootPoint: {fileID: 3824429825581525166}
   bottomShootPoint: {fileID: 5506552341582810069}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!50 &-2147046630004300754
 Rigidbody2D:
   serializedVersion: 4
@@ -204,8 +208,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8cde09a9ae22e449804f4b37dad6f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   returnToOrigin: 0
+--- !u!61 &2772415808307387040
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670283701083994854}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.33857647, y: 0.69277906}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0520859, y: 2.1772046}
+  m_EdgeRadius: 0
 --- !u!1 &4130851904754249316
 GameObject:
   m_ObjectHideFlags: 0

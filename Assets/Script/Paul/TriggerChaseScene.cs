@@ -6,6 +6,10 @@ public class TriggerChaseScene : MonoBehaviour
 {
     private void OnDestroy()
     {
-        FinalLevelManager.Instance.SpawnChaseMob();
+        // To prevent error when game is closed with this object still existing in the scene
+        if (Application.isPlaying && gameObject.scene.isLoaded)
+        {
+            FinalLevelManager.Instance.SpawnChaseMob();
+        }
     }
 }

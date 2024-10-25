@@ -5,22 +5,15 @@ using UnityEngine;
 public class MobController : MonoBehaviour
 {
     [Header("Mob Settings")]
-    [SerializeField]
-    private GameObject projectilePrefab;            // Projectile prefab
-    [SerializeField]
-    private float minShootInterval = 1f;           // Minimum interval between shots
-    [SerializeField]
-    private float maxShootInterval = 3f;           // Maximum interval between shots
-    [SerializeField]
-    private float projectileForce = 10f;            // Force applied to the projectiles
+    [SerializeField] private GameObject projectilePrefab; // Projectile prefab
+    [SerializeField] private float minShootInterval = 1f; // Minimum interval between shots
+    [SerializeField] private float maxShootInterval = 3f; // Maximum interval between shots
+    [SerializeField] private float projectileForce = 10f; // Force applied to the projectiles
 
     [Header("Shooting Points")]
-    [SerializeField]
-    private Transform topShootPoint;                // Top shooting point
-    [SerializeField]
-    private Transform middleShootPoint;             // Middle shooting point
-    [SerializeField]
-    private Transform bottomShootPoint;             // Bottom shooting point
+    [SerializeField] private Transform topShootPoint;      // Top shooting point
+    [SerializeField] private Transform middleShootPoint;   // Middle shooting point
+    [SerializeField] private Transform bottomShootPoint;   // Bottom shooting point
 
     private Animator mobAnimator;
 
@@ -52,9 +45,6 @@ public class MobController : MonoBehaviour
 
             // Shoot projectile from the specified shoot point
             ShootProjectile(shootPoint);
-
-            // Reset attack trigger to stop animation
-            mobAnimator.ResetTrigger("attack");
         }
     }
 
@@ -87,10 +77,12 @@ public class MobController : MonoBehaviour
         projectileRb.AddForce(Vector2.right * projectileForce, ForceMode2D.Impulse);
     }
 
-    // Make sure the mob ignores collisions (like phasing through objects)
-    private void OnCollisionEnter2D(Collision2D collision)
+    // Instant kill the player when within the hitbox
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Prevent the mob from stopping when colliding with other objects
-        Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        if (collision.CompareTag("Player"))
+        {
+            HealthManager.Instance.TakeDamage(HealthManager.Instance.GetSharedHealth());
+        }
     }
 }
