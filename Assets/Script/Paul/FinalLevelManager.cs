@@ -102,7 +102,7 @@ public class FinalLevelManager : MonoBehaviour
     // When player goes back into dynamite room with dynamite
     public void UseDynamite()
     {
-        floorBreak.SetActive(false);
+        floorBreakTilemap.SetActive(false);
     }
 
     private IEnumerator ActivateObjectAfterSeconds(GameObject gameObject, float seconds)
