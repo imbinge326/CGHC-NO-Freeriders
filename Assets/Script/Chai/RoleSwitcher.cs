@@ -5,6 +5,7 @@ public class RoleSwitcher : MonoBehaviour
     public GameObject role1Prefab; // Knight
     public GameObject role2Prefab; // Wizard
     public GameObject role3Prefab; // Assassin
+    public bool canSwitch = true;
 
     private GameObject currentRole;
     private string currentRoleType; // 用于记录当前的角色类型
@@ -23,6 +24,9 @@ public class RoleSwitcher : MonoBehaviour
 
     void Update()
     {
+        if (!canSwitch)
+            return;
+
         // 按1键切换到Knight
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
