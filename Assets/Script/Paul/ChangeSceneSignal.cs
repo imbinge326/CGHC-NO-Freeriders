@@ -30,7 +30,7 @@ public class ChangeSceneSignal : MonoBehaviour
         Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
         if (playerRb != null)
         {
-            playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
+            playerRb.constraints = RigidbodyConstraints2D.FreezePositionX;
         }
         else
         {

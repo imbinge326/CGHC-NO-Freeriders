@@ -25,12 +25,18 @@ public class FinalLevelManager : MonoBehaviour
     private GameObject dynamitePickupTextObject;
     [SerializeField]
     private GameObject getDynamiteTextObject;
+    [SerializeField]
+    private GameObject bossRoomOpenedTextObject;
 
     [Header("Others")]
     [SerializeField]
     private GameObject triggerBossLevelComponent;
     [SerializeField]
     private GameObject floorBreakTilemap;
+    [SerializeField]
+    private GameObject bossRoomDoor;
+    [SerializeField]
+    private GameObject blockExit;
 
     private GameObject player;
 
@@ -52,8 +58,11 @@ public class FinalLevelManager : MonoBehaviour
 
     private void Start()
     {
+        blockExit.SetActive(false); 
+        triggerBossLevelComponent.SetActive(false);
         dynamitePickupTextObject.SetActive(false);
         getDynamiteTextObject.SetActive(false);
+        bossRoomOpenedTextObject.SetActive(false);
     }
 
     private IEnumerator DelayedFindPlayer()
@@ -72,10 +81,19 @@ public class FinalLevelManager : MonoBehaviour
             return;
         }
 
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        if (playerController == null)
+            Debug.LogError("Player has no PlayerController");
+
+        if (playerController.cutsceneLoad)
+        {
+            blockExit.SetActive(true);
+        }
+
         Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
         if (playerRb != null)
         {
-            playerRb.constraints = RigidbodyConstraints2D.FreezePosition; // Unfreeze the player
+            playerRb.constraints = RigidbodyConstraints2D.None; // Unfreeze the player
             playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         else
@@ -87,6 +105,9 @@ public class FinalLevelManager : MonoBehaviour
     // When player first goes into dynamite room without keys
     public void ActivateDynamiteQuest()
     {
+        if (!getDynamiteTextObject.gameObject.activeInHierarchy)
+            return;
+
         getDynamiteTextObject.SetActive(true);
         StartCoroutine(DeactivateObjectAfterSeconds(getDynamiteTextObject, 4f));
     }
@@ -94,6 +115,9 @@ public class FinalLevelManager : MonoBehaviour
     // When player picks up dynamite
     public void OnDynamitePickup()
     {
+        if (!dynamitePickupTextObject.gameObject.activeInHierarchy)
+            return;
+
         dynamitePickupTextObject.SetActive(true);
         StartCoroutine(DeactivateObjectAfterSeconds(dynamitePickupTextObject, 3f));
         hasDynamite = true;
@@ -102,7 +126,23 @@ public class FinalLevelManager : MonoBehaviour
     // When player goes back into dynamite room with dynamite
     public void UseDynamite()
     {
+        if (!floorBreakTilemap.gameObject.activeInHierarchy)
+            return;
         floorBreakTilemap.SetActive(false);
+    }
+
+    public void FlipLever()
+    {
+        if (!bossRoomOpenedTextObject.gameObject.activeInHierarchy || 
+            !triggerBossLevelComponent.gameObject.activeInHierarchy || 
+            !bossRoomDoor.gameObject.activeInHierarchy)
+            return;
+
+        bossRoomOpenedTextObject.SetActive(true);
+        StartCoroutine(DeactivateObjectAfterSeconds(bossRoomOpenedTextObject, 3f));
+        triggerBossLevelComponent.SetActive(true);
+
+        bossRoomDoor.SetActive(false);
     }
 
     private IEnumerator ActivateObjectAfterSeconds(GameObject gameObject, float seconds)
@@ -143,8 +183,9 @@ public class FinalLevelManager : MonoBehaviour
         }
 
         StartCoroutine(FadeAndLoadScene("BossCutscene"));
-        PlayerController.instance.playerPosition = playerPosition;
-        PlayerController.instance.cutsceneLoad = true;
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        playerController.playerPosition = playerPosition;
+        playerController.cutsceneLoad = true;
     }
 
     private IEnumerator FadeAndLoadScene(string sceneName)

@@ -6,6 +6,9 @@ public class Dynamite : MonoBehaviour
 {
     private void OnDestroy()
     {
-        FinalLevelManager.Instance.OnDynamitePickup();
+        if (Application.isPlaying && gameObject.scene.isLoaded)
+        {
+            FinalLevelManager.Instance.OnDynamitePickup();
+        }
     }
 }

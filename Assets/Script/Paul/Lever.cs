@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private Sprite flippedSprite;
+    [SerializeField]
+    private GameObject promptText;
+
+    private bool flipped;
+
+    private void Start()
     {
-        
+        promptText.SetActive(false);
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (flipped)
+                return;
+
+            promptText.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                flipped = true;
+                promptText.SetActive(false);
+                SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
+                spriteRend.sprite = flippedSprite;
+
+                FinalLevelManager.Instance.FlipLever();
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        promptText.SetActive(false);
     }
 }

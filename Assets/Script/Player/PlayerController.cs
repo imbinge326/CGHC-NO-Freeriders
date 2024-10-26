@@ -3,8 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController instance;
-
     // 用于区分玩家是否是从上一场景或下一场景传送过来的
     public bool useReturnPoint = false;
     public bool cutsceneLoad = false;
