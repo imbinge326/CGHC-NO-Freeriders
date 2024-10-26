@@ -10,7 +10,7 @@ public class TriggerBoss : MonoBehaviour
             Rigidbody2D playerRb = collision.GetComponent<Rigidbody2D>();
             if (playerRb != null)
             {
-                playerRb.constraints = RigidbodyConstraints2D.FreezeAll; // Freeze everything
+                playerRb.constraints = RigidbodyConstraints2D.FreezePositionX;
             }
             else
             {
