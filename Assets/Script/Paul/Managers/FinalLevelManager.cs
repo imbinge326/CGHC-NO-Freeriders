@@ -37,6 +37,9 @@ public class FinalLevelManager : MonoBehaviour
     private GameObject bossRoomDoor;
     [SerializeField]
     private GameObject blockExit;
+    [SerializeField]
+    private GameObject godNovusPhase1Prefab;
+    public bool bossIsDead;
 
     private GameObject player;
     private GameObject roleSwitcher;
@@ -59,6 +62,7 @@ public class FinalLevelManager : MonoBehaviour
 
     private void Start()
     {
+        godNovusPhase1Prefab.SetActive(false);
         blockExit.SetActive(false); 
         triggerBossLevelComponent.SetActive(false);
         dynamitePickupTextObject.SetActive(false);
@@ -90,6 +94,8 @@ public class FinalLevelManager : MonoBehaviour
         if (playerController.cutsceneLoad)
         {
             blockExit.SetActive(true);
+            godNovusPhase1Prefab.SetActive(true);
+            FinalBossManager.Instance.StartBossFight();
         }
 
         Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
