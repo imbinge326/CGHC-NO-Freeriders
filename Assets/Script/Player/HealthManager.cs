@@ -9,8 +9,6 @@ public class HealthManager : MonoBehaviour
     private float maxHealth = 100f;
     private HealthBar healthBar;
 
-    // Start is called before the first frame update
-
     void Awake()
     {
         if (Instance != null && Instance != this)

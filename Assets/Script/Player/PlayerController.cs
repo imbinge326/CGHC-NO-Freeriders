@@ -3,11 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    private static PlayerController instance;
-
     // 用于区分玩家是否是从上一场景或下一场景传送过来的
     public bool useReturnPoint = false;
-       private void OnEnable()
+    public bool cutsceneLoad = false;
+    public Vector3 playerPosition;
+
+    private void OnEnable()
     {
         // 订阅场景加载事件
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -23,6 +24,12 @@ public class PlayerController : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         GameObject spawnPoint;
+
+        if (cutsceneLoad)
+        {
+            transform.position = playerPosition;
+            return;
+        }
 
         // 根据是否使用 ReturnPoint 选择生成点
         if (useReturnPoint)

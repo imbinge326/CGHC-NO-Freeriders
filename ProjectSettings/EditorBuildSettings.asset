@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Chai.unity
+    path: Assets/Scenes/chai.unity
     guid: 186a03f599e108147a423d90b1d8a8e0
   - enabled: 1
     path: Assets/Scenes/han.unity
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Paul.unity
     guid: 227547b198dbdae40b606361c34030c4
+  - enabled: 1
+    path: Assets/Scenes/BossCutscene.unity
+    guid: 8d05378fb5f7f6b41a4b12975e29b282
   m_configObjects: {}
