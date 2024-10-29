@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FinalBossManager : MonoBehaviour
@@ -21,8 +20,20 @@ public class FinalBossManager : MonoBehaviour
     private float minAttackInterval = 2f; // Minimum time between attacks
     [SerializeField]
     private float maxAttackInterval = 5f; // Maximum time between attacks
+    [SerializeField]
+    private bool isAttacking;
 
+    [Header("Vulnerability Settings")]
+    [SerializeField]
+    private int attacksBeforeVulnerability = 5; // Number of attacks before boss becomes vulnerable
+    [SerializeField]
+    private float vulnerabilityDuration = 3f; // Duration the boss remains vulnerable
 
+    [Header("Phase 1")]
+    [SerializeField]
+    private GameObject godNovusPhase1Object;
+
+    private int attackCounter = 0; // Tracks the number of attacks
     private GameObject player;
     public static FinalBossManager Instance { get; private set; } // Singleton
 
@@ -40,35 +51,49 @@ public class FinalBossManager : MonoBehaviour
 
     private void Start()
     {
+        godNovusPhase1Object.SetActive(false);
         bossAttack1.SetActive(false);
         bossAttack2.SetActive(false);
         vulnerableIndicator.SetActive(false);
+
+        //StartBossFight(); // DEBUGGING
     }
 
     // Start the boss fight
     public void StartBossFight()
     {
+        godNovusPhase1Object.SetActive(true);
         StartCoroutine(StartAttack());
+    }
+
+    public void BossDies()
+    {
+        // Boss Die Logic
     }
 
     // Coroutine to handle random attack intervals
     private IEnumerator StartAttack()
     {
-        while (true) // Loops infinitely, modify as needed for the boss fight
+        isAttacking = true;
+        while (isAttacking)
         {
-            // Random time interval within the range
             float timeUntilNextAttack = Random.Range(minAttackInterval, maxAttackInterval);
             yield return new WaitForSeconds(timeUntilNextAttack);
 
             // Trigger a random attack
             TriggerRandomAttack();
         }
+
+        if (!isAttacking)
+        {
+            yield return null;
+        }
     }
 
     // Function to trigger a random boss attack
     private void TriggerRandomAttack()
     {
-        int attackChoice = Random.Range(0, 2); // Assuming two attacks: 0 or 1
+        int attackChoice = Random.Range(0, 2);
         if (attackChoice == 0)
         {
             Attack1();
@@ -76,6 +101,14 @@ public class FinalBossManager : MonoBehaviour
         else
         {
             Attack2();
+        }
+
+        // Increment the attack counter and check for vulnerability
+        attackCounter++;
+        if (attackCounter >= attacksBeforeVulnerability)
+        {
+            attackCounter = 0; // Reset counter after vulnerability
+            StartCoroutine(MakeBossVulnerable());
         }
     }
 
@@ -97,7 +130,6 @@ public class FinalBossManager : MonoBehaviour
 
     private Vector3 GetPlayerPosition()
     {
-        // Find player reference in the scene
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player)
         {
@@ -110,5 +142,24 @@ public class FinalBossManager : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         attackGameObject.SetActive(false);
+    }
+
+    private IEnumerator MakeBossVulnerable()
+    {
+        BossPhase1 phase1Script = godNovusPhase1Object.GetComponent<BossPhase1>();
+        if (phase1Script == null)
+            Debug.LogError("BossPhase1 Script not found");
+
+        isAttacking = false;
+        phase1Script.isVulnerable = true;
+
+        vulnerableIndicator.SetActive(true);
+
+        yield return new WaitForSeconds(vulnerabilityDuration);
+
+        StartCoroutine(StartAttack());
+        phase1Script.isVulnerable = false;
+
+        vulnerableIndicator.SetActive(false);
     }
 }

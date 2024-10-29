@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
     [SerializeField] private float explosionRadius = 2f;
-    [SerializeField] private float explosionDamage = 50f;
+    [SerializeField] private float explosionDamage = 50f; 
     [SerializeField] private GameObject explosionEffect;
     [SerializeField] private float lifetime = 5f;
     [SerializeField] private string targetTag = "Enemy";
@@ -80,5 +80,10 @@ public class Fireball : MonoBehaviour
         // Display the explosion radius when selected in the Editor
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
+    }
+
+    public float GetFireballDamage()
+    {
+        return explosionDamage;
     }
 }
