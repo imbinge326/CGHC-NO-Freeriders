@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PauseManager : MonoBehaviour
@@ -5,6 +6,7 @@ public class PauseManager : MonoBehaviour
     public static PauseManager Instance { get; private set; } // Singleton instance
     public bool IsPaused { get; private set; } = false; // Access via method
 
+    [SerializeField]
     private GameObject pauseUI; 
 
     private void Awake()
@@ -23,10 +25,7 @@ public class PauseManager : MonoBehaviour
 
     private void Start()
     {
-        pauseUI = GameObject.Find("PauseUI");
-        if (pauseUI == null)
-            Debug.LogError("PauseUI not found");
-        pauseUI.SetActive(false);
+        //StartCoroutine(DelayedFindPauseUI());
     }
 
     private void Update()
@@ -73,5 +72,15 @@ public class PauseManager : MonoBehaviour
         {
             pauseUI.SetActive(false); // Deactivate the GameObject
         }
+    }
+
+    private IEnumerator DelayedFindPauseUI()
+    {
+        yield return new WaitForSeconds(1f);
+        pauseUI = GameObject.Find("PauseUI");
+        if (pauseUI == null)
+            Debug.LogError("PauseUI not found");
+
+        pauseUI.SetActive(false);
     }
 }

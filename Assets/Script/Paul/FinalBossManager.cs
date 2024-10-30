@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class FinalBossManager : MonoBehaviour
@@ -14,6 +15,8 @@ public class FinalBossManager : MonoBehaviour
     private float bossAtk2Lifetime;
     [SerializeField]
     private GameObject vulnerableIndicator;
+    [SerializeField]
+    private GameObject bossDieExplosion;
 
     [Header("Attack Timing Settings")]
     [SerializeField]
@@ -35,6 +38,7 @@ public class FinalBossManager : MonoBehaviour
 
     private int attackCounter = 0; // Tracks the number of attacks
     private GameObject player;
+    private BossPhase1 bossScript;
     public static FinalBossManager Instance { get; private set; } // Singleton
 
     private void Awake()
@@ -51,12 +55,17 @@ public class FinalBossManager : MonoBehaviour
 
     private void Start()
     {
+        bossScript = godNovusPhase1Object.GetComponent<BossPhase1>();
+        if (bossScript == null)
+            Debug.LogError("BossPhase1 Script not found");
+
+        bossDieExplosion.SetActive(false);
         godNovusPhase1Object.SetActive(false);
         bossAttack1.SetActive(false);
         bossAttack2.SetActive(false);
         vulnerableIndicator.SetActive(false);
 
-        //StartBossFight(); // DEBUGGING
+        StartBossFight(); // DEBUGGING
     }
 
     // Start the boss fight
@@ -69,13 +78,35 @@ public class FinalBossManager : MonoBehaviour
     public void BossDies()
     {
         // Boss Die Logic
+        Animator bossAnimator = godNovusPhase1Object.GetComponent<Animator>();
+        if (bossAnimator == null)
+            Debug.LogError("Animator not found in boss prefab");
+
+        bossAnimator.SetBool("BossDie", true);
+
+        StartCoroutine(DelayBossDeath());
+    }
+
+    private IEnumerator DelayBossDeath()
+    {
+        yield return new WaitForSeconds(1f);
+
+        bossDieExplosion.SetActive(true);
+
+        yield return new WaitForSeconds(0.375f);
+
+        godNovusPhase1Object.SetActive(false);
+
+        yield return new WaitForSeconds(0.75f);
+
+        bossDieExplosion.SetActive(false);
     }
 
     // Coroutine to handle random attack intervals
     private IEnumerator StartAttack()
     {
         isAttacking = true;
-        while (isAttacking)
+        while (isAttacking && bossScript.GetBossHealth() > 0)
         {
             float timeUntilNextAttack = Random.Range(minAttackInterval, maxAttackInterval);
             yield return new WaitForSeconds(timeUntilNextAttack);
@@ -84,8 +115,9 @@ public class FinalBossManager : MonoBehaviour
             TriggerRandomAttack();
         }
 
-        if (!isAttacking)
+        if (!isAttacking || bossScript.GetBossHealth() <= 0)
         {
+            isAttacking = false;
             yield return null;
         }
     }
@@ -145,20 +177,16 @@ public class FinalBossManager : MonoBehaviour
     }
 
     private IEnumerator MakeBossVulnerable()
-    {
-        BossPhase1 phase1Script = godNovusPhase1Object.GetComponent<BossPhase1>();
-        if (phase1Script == null)
-            Debug.LogError("BossPhase1 Script not found");
-
+    { 
         isAttacking = false;
-        phase1Script.isVulnerable = true;
+        bossScript.isVulnerable = true;
 
         vulnerableIndicator.SetActive(true);
 
         yield return new WaitForSeconds(vulnerabilityDuration);
 
         StartCoroutine(StartAttack());
-        phase1Script.isVulnerable = false;
+        bossScript.isVulnerable = false;
 
         vulnerableIndicator.SetActive(false);
     }

@@ -30,4 +30,9 @@ public class BossPhase1 : MonoBehaviour
             FinalBossManager.Instance.BossDies();
         }
     }
+
+    public float GetBossHealth()
+    {
+        return bossHealth;
+    }
 }

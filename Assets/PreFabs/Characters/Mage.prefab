@@ -138,11 +138,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 512
   wallRaycastDistance: 1
   groundRaycastDistance: 1
+  edgeOffset: 0.5
 --- !u!95 &5149396052496377412
 Animator:
   serializedVersion: 5
@@ -204,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e3ce67e0a3a9148996a0e377b230d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireballPrefab: {fileID: 8348934520280199906, guid: 4ff106d5800330442b715c5e0d108eda, type: 3}
+  fireballPrefab: {fileID: 227762527029157611, guid: 481529ca6140aa34880636abdaa62eb6, type: 3}
   firePoint: {fileID: 7883523250778454725}
   fireballSpeed: 5
   explosionRadius: 2
@@ -212,6 +210,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6421689920744576992}
   firePointOffsetRight: {x: 0.11, y: 0}
   firePointOffsetLeft: {x: -0.11, y: 0}
+  shootingCooldown: 0.5
 --- !u!58 &5805429167939224172
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -290,7 +289,7 @@ GameObject:
   m_Layer: 3
   m_Name: FirePoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -303,7 +302,7 @@ Transform:
   m_GameObject: {fileID: 4053192996377214680}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0141, y: 0, z: 0}
+  m_LocalPosition: {x: 0.0141, y: 0.047, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

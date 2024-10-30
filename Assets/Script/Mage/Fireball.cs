@@ -8,7 +8,6 @@ public class Fireball : MonoBehaviour
     [SerializeField] private float explosionDamage = 50f; 
     [SerializeField] private GameObject explosionEffect;
     [SerializeField] private float lifetime = 5f;
-    [SerializeField] private string targetTag = "Enemy";
 
     public void Setup(float radius, float damage)
     {
@@ -23,23 +22,17 @@ public class Fireball : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(targetTag))
+        if (collision.CompareTag("BossAttack") || collision.CompareTag("Player") || collision.CompareTag("PlayerProjectile"))
         {
-            if (targetTag == "BossAttack")
+            return;
+        }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
             {
-                return;
-            }
-            else if (targetTag == "Enemy")
-            {
-                Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-                if (enemy != null)
-                {
-                    enemy.TakeDamage(explosionDamage);
-                }
-            }
-            else if( targetTag == "Player")
-            {
-                HealthManager.Instance.TakeDamage(explosionDamage);
+                enemy.TakeDamage(explosionDamage);
             }
         }
 
@@ -53,28 +46,6 @@ public class Fireball : MonoBehaviour
         {
             Instantiate(explosionEffect, transform.position, Quaternion.identity);
         }
-
-        /*Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
-
-        foreach (Collider2D hit in hitColliders)
-        {
-            if (hit.CompareTag(targetTag))
-            {
-                if (targetTag == "Enemy")
-                {
-                    // Get the Enemy script and apply damage
-                    Enemy enemy = hit.GetComponent<Enemy>();
-                    if (enemy != null)
-                    {
-                        enemy.TakeDamage(explosionDamage);
-                    }
-                }
-                else if (targetTag == "Player")
-                {
-                    HealthManager.Instance.TakeDamage(explosionDamage);
-                }
-            }
-        }*/
 
         Destroy(gameObject);  // Destroy the fireball after explosion
     }

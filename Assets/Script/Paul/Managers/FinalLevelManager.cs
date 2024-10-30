@@ -37,7 +37,6 @@ public class FinalLevelManager : MonoBehaviour
     private GameObject bossRoomDoor;
     [SerializeField]
     private GameObject blockExit;
-    public bool bossIsDead;
 
     private GameObject player;
     private GameObject roleSwitcher;

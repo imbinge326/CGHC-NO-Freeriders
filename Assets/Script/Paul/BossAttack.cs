@@ -51,5 +51,8 @@ public class BossAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         canDealDamage = true;
+
+        yield return new WaitForSeconds(0.3f);
+        canDealDamage = false;
     }
 }
