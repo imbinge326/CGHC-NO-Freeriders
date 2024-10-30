@@ -22,6 +22,14 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        pauseUI = GameObject.Find("PauseUI");
+
+        if (pauseUI == null)
+            Debug.LogError("PauseUI not found");
+    }
+
     private void Update()
     {
         // Check for Escape key press
@@ -45,6 +53,11 @@ public class PauseManager : MonoBehaviour
             Time.timeScale = 1; // Resume the game
             DeactivatePauseMenu(); // Deactivate the GameObject when resuming
         }
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
     private void ActivatePauseMenu()

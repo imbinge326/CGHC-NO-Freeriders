@@ -58,8 +58,14 @@ public class HealthManager : MonoBehaviour
         {
             Destroy(player);
         }
-        
-        //load death scene here
+
+        RoleSwitcher roleSwitcher = GameObject.Find("SwitchRole").GetComponent<RoleSwitcher>();
+        if (roleSwitcher == null)
+            Debug.LogError("SwitchRole not found in hierarchy");
+
+        roleSwitcher.canSwitch = false;
+
+        // Death UI below
     }
 
     // 返回当前的共享生命值
