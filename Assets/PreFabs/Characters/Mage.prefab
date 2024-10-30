@@ -210,7 +210,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6421689920744576992}
   firePointOffsetRight: {x: 0.11, y: 0}
   firePointOffsetLeft: {x: -0.11, y: 0}
-  shootingCooldown: 0.5
+  shootingCooldown: 0.3
 --- !u!58 &5805429167939224172
 CircleCollider2D:
   m_ObjectHideFlags: 0

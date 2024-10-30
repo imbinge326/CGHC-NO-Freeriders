@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class FinalBossManager : MonoBehaviour
@@ -61,11 +60,9 @@ public class FinalBossManager : MonoBehaviour
 
         bossDieExplosion.SetActive(false);
         godNovusPhase1Object.SetActive(false);
-        bossAttack1.SetActive(false);
-        bossAttack2.SetActive(false);
         vulnerableIndicator.SetActive(false);
 
-        //StartBossFight(); // DEBUGGING
+        // StartBossFight(); // DEBUGGING
     }
 
     // Start the boss fight
@@ -147,17 +144,15 @@ public class FinalBossManager : MonoBehaviour
     void Attack1()
     {
         Vector3 positionToAttack = GetPlayerPosition();
-        bossAttack1.transform.position = positionToAttack;
-        bossAttack1.SetActive(true);
-        StartCoroutine(DeactivateAttackGOAfterSeconds(bossAttack1, bossAtk1Lifetime));
+        GameObject attackInstance = Instantiate(bossAttack1, positionToAttack, Quaternion.identity);
+        Destroy(attackInstance, bossAtk1Lifetime);
     }
 
     void Attack2()
     {
         Vector3 positionToAttack = GetPlayerPosition();
-        bossAttack2.transform.position = positionToAttack;
-        bossAttack2.SetActive(true);
-        StartCoroutine(DeactivateAttackGOAfterSeconds(bossAttack2, bossAtk2Lifetime));
+        GameObject attackInstance = Instantiate(bossAttack2, positionToAttack, Quaternion.identity);
+        Destroy(attackInstance, bossAtk2Lifetime);
     }
 
     private Vector3 GetPlayerPosition()
@@ -170,14 +165,8 @@ public class FinalBossManager : MonoBehaviour
         return player.transform.position;
     }
 
-    private IEnumerator DeactivateAttackGOAfterSeconds(GameObject attackGameObject, float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        attackGameObject.SetActive(false);
-    }
-
     private IEnumerator MakeBossVulnerable()
-    { 
+    {
         isAttacking = false;
         bossScript.isVulnerable = true;
 
