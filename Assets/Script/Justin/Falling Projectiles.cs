@@ -4,7 +4,6 @@ using UnityEngine;
 public class FallingProjectiles : MonoBehaviour
 {
     private float fireballSpeed = 5f;
-    private float particlesInterval = 0.5f;
     [SerializeField] private float damage;
     [SerializeField] private GameObject particles;
     void Start()
@@ -22,7 +21,7 @@ public class FallingProjectiles : MonoBehaviour
             HealthManager.Instance.TakeDamage(damage);
             ExplosionEffects();
         }
-        else if (other.gameObject.CompareTag("Ground"))
+        else if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("PlayerProjectile"))
         {
             ExplosionEffects();
         }
