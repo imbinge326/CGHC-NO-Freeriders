@@ -65,7 +65,7 @@ public class FinalBossManager : MonoBehaviour
         bossAttack2.SetActive(false);
         vulnerableIndicator.SetActive(false);
 
-        StartBossFight(); // DEBUGGING
+        //StartBossFight(); // DEBUGGING
     }
 
     // Start the boss fight
