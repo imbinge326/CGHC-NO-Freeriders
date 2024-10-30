@@ -190,7 +190,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -11923,7 +11923,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1157611421, guid: 9cc6286cffbc1614fba386ff7bca5635, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.10827984, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12305,7 +12305,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -12895,7 +12895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4934880801436170502, guid: 6cefa470ba596474d93fec5442784110, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9027450532343665147, guid: 6cefa470ba596474d93fec5442784110, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12942,6 +12942,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cefa470ba596474d93fec5442784110, type: 3}
+--- !u!95 &1483292889 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4118426235701053057, guid: 6cefa470ba596474d93fec5442784110, type: 3}
+  m_PrefabInstance: {fileID: 1483292886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1500188327
 GameObject:
   m_ObjectHideFlags: 0
@@ -13107,7 +13112,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1157611421, guid: 9cc6286cffbc1614fba386ff7bca5635, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.9716981, b: 0.030534917, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -18827,6 +18832,12 @@ PlayableDirector:
     value: {fileID: 1880126974}
   - key: {fileID: 13555721035155160, guid: 7a4d11b3ed7ccd74bb890cbb79c69d97, type: 2}
     value: {fileID: 1879603655}
+  - key: {fileID: 5287784945822807751, guid: 7a4d11b3ed7ccd74bb890cbb79c69d97, type: 2}
+    value: {fileID: 685194471}
+  - key: {fileID: 4788264307239591046, guid: 7a4d11b3ed7ccd74bb890cbb79c69d97, type: 2}
+    value: {fileID: 522113943}
+  - key: {fileID: -6523624216405335432, guid: 7a4d11b3ed7ccd74bb890cbb79c69d97, type: 2}
+    value: {fileID: 1483292889}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1746732990
@@ -19328,7 +19339,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1157611421, guid: 9cc6286cffbc1614fba386ff7bca5635, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3529412, g: 0, b: 0.9764706, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19434,7 +19445,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1157611421, guid: 9cc6286cffbc1614fba386ff7bca5635, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.011456013, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19818,12 +19829,12 @@ SceneRoots:
   m_Roots:
   - {fileID: 2099959415}
   - {fileID: 1091408912}
+  - {fileID: 685194473}
   - {fileID: 601166318}
   - {fileID: 1630893690}
   - {fileID: 1880126976}
   - {fileID: 1879603657}
   - {fileID: 1483292886}
-  - {fileID: 685194473}
   - {fileID: 522113945}
   - {fileID: 180853104}
   - {fileID: 959681900}
