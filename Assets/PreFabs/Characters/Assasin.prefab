@@ -147,17 +147,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa18d619f5dc5645a040a69d9fcad06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 9
   jumpingPower: 15
   rb: {fileID: 5649620407087039031}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 512
   wallRaycastDistance: 1
   groundRaycastDistance: 1
+  edgeOffset: 0.5
 --- !u!50 &5649620407087039031
 Rigidbody2D:
   serializedVersion: 4
