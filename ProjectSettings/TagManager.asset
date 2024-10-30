@@ -8,6 +8,8 @@ TagManager:
   - Portal
   - Wall
   - PlayerProjectile
+  - BossAttack
+  - PauseUI
   layers:
   - Default
   - TransparentFX

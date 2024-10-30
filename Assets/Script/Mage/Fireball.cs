@@ -25,7 +25,11 @@ public class Fireball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(targetTag))
         {
-            if (targetTag == "Enemy")
+            if (targetTag == "BossAttack")
+            {
+                return;
+            }
+            else if (targetTag == "Enemy")
             {
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
                 if (enemy != null)

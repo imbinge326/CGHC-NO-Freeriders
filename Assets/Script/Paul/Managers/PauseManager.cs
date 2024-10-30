@@ -5,8 +5,7 @@ public class PauseManager : MonoBehaviour
     public static PauseManager Instance { get; private set; } // Singleton instance
     public bool IsPaused { get; private set; } = false; // Access via method
 
-    [SerializeField]
-    private GameObject pauseUI; // Reference to the GameObject to activate when paused
+    private GameObject pauseUI; 
 
     private void Awake()
     {
@@ -25,9 +24,9 @@ public class PauseManager : MonoBehaviour
     private void Start()
     {
         pauseUI = GameObject.Find("PauseUI");
-
         if (pauseUI == null)
             Debug.LogError("PauseUI not found");
+        pauseUI.SetActive(false);
     }
 
     private void Update()
