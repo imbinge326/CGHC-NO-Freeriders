@@ -4,7 +4,7 @@ using UnityEngine;
 public class FallingProjectiles : MonoBehaviour
 {
     private float fireballSpeed = 5f;
-    private float particlesInterval = 1f;
+    private float particlesInterval = 0.5f;
     [SerializeField] private float damage;
     [SerializeField] private GameObject particles;
     void Start()
@@ -17,17 +17,20 @@ public class FallingProjectiles : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Player"))
         {
             HealthManager.Instance.TakeDamage(damage);
-            StartCoroutine(ExplosionEffects());
+            ExplosionEffects();
+        }
+        else if (other.gameObject.CompareTag("Ground"))
+        {
+            ExplosionEffects();
         }
     }
 
-    public IEnumerator ExplosionEffects()
+    public void ExplosionEffects()
     {
         Instantiate(particles, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(particlesInterval);
         Destroy(gameObject);
     }
 }
