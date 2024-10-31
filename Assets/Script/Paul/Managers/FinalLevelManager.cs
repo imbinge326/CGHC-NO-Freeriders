@@ -1,10 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Collections;
-using UnityEngine.Tilemaps;
 
 public class FinalLevelManager : MonoBehaviour
 {
@@ -16,17 +15,19 @@ public class FinalLevelManager : MonoBehaviour
     [SerializeField]
     private GameObject chaseMobSpawnPoint;
     [SerializeField]
-    private Transform[] targetPoints; // Array of target points
+    private Transform[] targetPoints;
 
     [Header("UI Settings")]
     [SerializeField]
-    private Image fadeImage; // Assign your FadeImage here in the Inspector
+    private Image fadeImage;
     [SerializeField]
     private GameObject dynamitePickupTextObject;
     [SerializeField]
     private GameObject getDynamiteTextObject;
     [SerializeField]
     private GameObject bossRoomOpenedTextObject;
+    [SerializeField]
+    private GameObject darkGodRuinsTextObject;
 
     [Header("Others")]
     [SerializeField]
@@ -40,42 +41,120 @@ public class FinalLevelManager : MonoBehaviour
 
     private GameObject player;
     private GameObject roleSwitcher;
+    private TextMeshProUGUI darkGodRuinsText;
 
     public bool hasDynamite = false;
-    public static Vector3 playerPosition; // Variable to hold the player's position
+    public static Vector3 playerPosition;
 
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); // Prevent duplicates
+            Destroy(gameObject);
         }
         else
         {
-            Instance = this; // Set singleton instance
-            StartCoroutine(DelayedFindPlayer()); // Start coroutine to delay FindPlayer
+            Instance = this;
+            StartCoroutine(DelayedFindPlayer());
         }
+        fadeImage.color = new Color(0, 0, 0, 1);
+        Cursor.visible = true;
     }
 
     private void Start()
     {
-        blockExit.SetActive(false); 
+        darkGodRuinsTextObject.SetActive(false);
+        blockExit.SetActive(false);
         triggerBossLevelComponent.SetActive(false);
         dynamitePickupTextObject.SetActive(false);
         getDynamiteTextObject.SetActive(false);
         bossRoomOpenedTextObject.SetActive(false);
     }
 
+    private IEnumerator ShowDarkGodRuinsTextEffect()
+    {
+        // Timing settings - much slower for dramatic effect
+        float screenFadeDuration = 3.0f;     // Slower fade from black
+        float textDelay = 1.0f;              // Wait before showing text
+        float textFadeInDuration = 2.0f;     // Slower text appearance
+        float textHoldDuration = 4.0f;       // Hold text longer
+        float textFadeOutDuration = 2.0f;    // Slower fade out
+
+        // Start with black screen
+        fadeImage.color = new Color(0, 0, 0, 1);
+
+        // Gradually fade from black to clear
+        yield return new WaitForSeconds(1.0f); // Initial pause in black
+        for (float t = 0; t < screenFadeDuration; t += Time.deltaTime)
+        {
+            float normalizedTime = t / screenFadeDuration;
+            // Use easing function for smoother fade
+            float alpha = 1 - Mathf.Pow(normalizedTime, 2);
+            fadeImage.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
+        fadeImage.color = new Color(0, 0, 0, 0);
+
+        // Wait before showing text
+        yield return new WaitForSeconds(textDelay);
+
+        // Setup text initial state
+        Color startColor = darkGodRuinsText.color;
+        darkGodRuinsText.color = new Color(startColor.r, startColor.g, startColor.b, 0);
+        float initialScale = 1.8f;           // Start larger
+        float targetScale = 2.0f;            // End even larger
+        darkGodRuinsTextObject.transform.localScale = Vector3.one * initialScale;
+        darkGodRuinsTextObject.SetActive(true);
+
+        // Fade in text with subtle scale
+        for (float t = 0; t < textFadeInDuration; t += Time.deltaTime)
+        {
+            float normalizedTime = t / textFadeInDuration;
+            // Use smooth step for more elegant easing
+            float smoothValue = normalizedTime * normalizedTime * (3 - 2 * normalizedTime);
+            darkGodRuinsText.color = new Color(startColor.r, startColor.g, startColor.b, smoothValue);
+            darkGodRuinsTextObject.transform.localScale = Vector3.one * Mathf.Lerp(initialScale, targetScale, smoothValue);
+            yield return null;
+        }
+        darkGodRuinsText.color = new Color(startColor.r, startColor.g, startColor.b, 1);
+        darkGodRuinsTextObject.transform.localScale = Vector3.one * targetScale;
+
+        // Hold the text
+        yield return new WaitForSeconds(textHoldDuration);
+
+        // Fade out text
+        for (float t = 0; t < textFadeOutDuration; t += Time.deltaTime)
+        {
+            float normalizedTime = t / textFadeOutDuration;
+            // Use smooth step for fade out too
+            float smoothValue = 1 - (normalizedTime * normalizedTime * (3 - 2 * normalizedTime));
+            darkGodRuinsText.color = new Color(startColor.r, startColor.g, startColor.b, smoothValue);
+            yield return null;
+        }
+
+        // Ensure text is fully transparent and disabled
+        darkGodRuinsText.color = new Color(startColor.r, startColor.g, startColor.b, 0);
+        darkGodRuinsTextObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        // DEBUGGING
+        if (Input.GetKey(KeyCode.L))
+        {
+            SceneManager.LoadScene(7);
+        }
+    }
+
     private IEnumerator DelayedFindPlayer()
     {
-        yield return new WaitForSeconds(0.1f); // Wait for 1 second
+        yield return new WaitForSeconds(0.1f);
         FindPlayer();
         FindRoleSwitcher();
     }
 
     private void FindPlayer()
     {
-        // Find player reference in the scene
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player)
         {
@@ -91,12 +170,18 @@ public class FinalLevelManager : MonoBehaviour
         {
             blockExit.SetActive(true);
             FinalBossManager.Instance.StartBossFight();
+            fadeImage.color = new Color(0, 0, 0, 0);
+        }
+        else
+        {
+            darkGodRuinsText = darkGodRuinsTextObject.GetComponent<TextMeshProUGUI>();
+            StartCoroutine(ShowDarkGodRuinsTextEffect());
         }
 
         Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
         if (playerRb != null)
         {
-            playerRb.constraints = RigidbodyConstraints2D.None; // Unfreeze the player
+            playerRb.constraints = RigidbodyConstraints2D.None;
             playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         else
@@ -112,17 +197,14 @@ public class FinalLevelManager : MonoBehaviour
         roleSwitcherScript.canSwitch = true;
     }
 
-    // When player first goes into dynamite room without keys
     public void ActivateDynamiteQuest()
     {
         getDynamiteTextObject.SetActive(true);
         StartCoroutine(DeactivateObjectAfterSeconds(getDynamiteTextObject, 4f));
     }
 
-    // When player picks up dynamite
     public void OnDynamitePickup()
     {
-        // Find player reference in the scene
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player)
         {
@@ -144,7 +226,6 @@ public class FinalLevelManager : MonoBehaviour
         hasDynamite = true;
     }
 
-    // When player goes back into dynamite room with dynamite
     public void UseDynamite()
     {
         floorBreakTilemap.SetActive(false);
@@ -157,6 +238,36 @@ public class FinalLevelManager : MonoBehaviour
         triggerBossLevelComponent.SetActive(true);
 
         bossRoomDoor.SetActive(false);
+    }
+
+    public void BossDies()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (!player)
+        {
+            Debug.LogError("Player not found in scene");
+            return;
+        }
+
+        Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
+
+        playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        StartCoroutine(FadeToBlack());
+    }
+
+    private IEnumerator FadeToBlack()
+    {
+        for (float t = 0; t < 3f; t += Time.deltaTime)
+        {
+            float normalizedTime = t / 3f;
+            // Use easing function for smoother fade
+            float alpha = Mathf.Pow(normalizedTime, 2); // Start from 0 and go to 1
+            fadeImage.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
+        fadeImage.color = new Color(0, 0, 0, 1); // Set to fully opaque at the end
+        SceneManager.LoadScene("WinCutscene");
     }
 
     private IEnumerator ActivateObjectAfterSeconds(GameObject gameObject, float seconds)

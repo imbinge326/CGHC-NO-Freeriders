@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
@@ -7,7 +9,11 @@ public class PauseManager : MonoBehaviour
     public bool IsPaused { get; private set; } = false; // Access via method
 
     [SerializeField]
-    private GameObject pauseUI; 
+    private GameObject pauseUI;
+
+    // List of scene names where pausing is disabled
+    [SerializeField]
+    private List<string> cutsceneScenes; // Add your cutscene scene names here
 
     private void Awake()
     {
@@ -23,18 +29,20 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        //StartCoroutine(DelayedFindPauseUI());
-    }
-
     private void Update()
     {
-        // Check for Escape key press
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // Check for Escape key press only if pausing is allowed in this scene
+        if (Input.GetKeyDown(KeyCode.Escape) && CanPause())
         {
-            TogglePause(); // Toggle pause state
+            TogglePause();
         }
+    }
+
+    // Method to check if pausing is allowed in the current scene
+    private bool CanPause()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        return !cutsceneScenes.Contains(currentSceneName);
     }
 
     public void TogglePause()

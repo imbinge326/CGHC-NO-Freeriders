@@ -5,16 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class ChangeSceneSignal : MonoBehaviour
 {
+    public string sceneName;
     private GameObject player;
     private GameObject roleSwitcher;
+
+    // Boolean to determine if the player's position should be forced
+    public bool forcePlayerPosition = false;
+
+    // Position to set the player to if forcePlayerPosition is true
+    public Vector3 forcedPosition;
+
     private void Awake()
     {
         StartCoroutine(DelayedFindPlayer());
+        Cursor.visible = false;
     }
 
     private IEnumerator DelayedFindPlayer()
     {
-        yield return new WaitForSeconds(0.1f); // Wait for 1 second
+        yield return new WaitForSeconds(0.1f); // Wait for 0.1 seconds
         FindPlayer();
         FindRoleSwitcher();
     }
@@ -25,7 +34,7 @@ public class ChangeSceneSignal : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player)
         {
-            Debug.LogError("Player not found in scene");
+            Debug.LogWarning("Player not found in scene");
             return;
         }
 
@@ -33,6 +42,13 @@ public class ChangeSceneSignal : MonoBehaviour
         if (playerRb != null)
         {
             playerRb.constraints = RigidbodyConstraints2D.FreezePositionX;
+
+            // If forcePlayerPosition is true, set the player's position to the forcedPosition
+            if (forcePlayerPosition)
+            {
+                player.transform.position = forcedPosition;
+                Debug.Log("Player position forced to: " + forcedPosition);
+            }
         }
         else
         {
@@ -43,12 +59,18 @@ public class ChangeSceneSignal : MonoBehaviour
     private void FindRoleSwitcher()
     {
         roleSwitcher = GameObject.Find("SwitchRole");
+        if (roleSwitcher == null)
+        {
+            Debug.LogWarning("RoleSwitcher not found in scene");
+            return;
+        }
+
         RoleSwitcher roleSwitcherScript = roleSwitcher.GetComponent<RoleSwitcher>();
         roleSwitcherScript.canSwitch = false;
     }
 
     public void ChangeScene()
     {
-        SceneManager.LoadScene("Paul");
+        SceneManager.LoadScene(sceneName);
     }
 }
