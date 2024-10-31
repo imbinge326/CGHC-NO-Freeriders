@@ -97,6 +97,8 @@ public class FinalBossManager : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
 
         bossDieExplosion.SetActive(false);
+
+        FinalLevelManager.Instance.BossDies();
     }
 
     // Coroutine to handle random attack intervals

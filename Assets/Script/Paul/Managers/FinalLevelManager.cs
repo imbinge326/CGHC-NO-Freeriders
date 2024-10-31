@@ -58,6 +58,7 @@ public class FinalLevelManager : MonoBehaviour
             StartCoroutine(DelayedFindPlayer());
         }
         fadeImage.color = new Color(0, 0, 0, 1);
+        Cursor.visible = true;
     }
 
     private void Start()
@@ -138,6 +139,7 @@ public class FinalLevelManager : MonoBehaviour
 
     private void Update()
     {
+        // DEBUGGING
         if (Input.GetKey(KeyCode.L))
         {
             SceneManager.LoadScene(7);
@@ -236,6 +238,36 @@ public class FinalLevelManager : MonoBehaviour
         triggerBossLevelComponent.SetActive(true);
 
         bossRoomDoor.SetActive(false);
+    }
+
+    public void BossDies()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (!player)
+        {
+            Debug.LogError("Player not found in scene");
+            return;
+        }
+
+        Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
+
+        playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        StartCoroutine(FadeToBlack());
+    }
+
+    private IEnumerator FadeToBlack()
+    {
+        for (float t = 0; t < 3f; t += Time.deltaTime)
+        {
+            float normalizedTime = t / 3f;
+            // Use easing function for smoother fade
+            float alpha = Mathf.Pow(normalizedTime, 2); // Start from 0 and go to 1
+            fadeImage.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
+        fadeImage.color = new Color(0, 0, 0, 1); // Set to fully opaque at the end
+        SceneManager.LoadScene("WinCutscene");
     }
 
     private IEnumerator ActivateObjectAfterSeconds(GameObject gameObject, float seconds)

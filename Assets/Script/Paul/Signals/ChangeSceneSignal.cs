@@ -18,6 +18,7 @@ public class ChangeSceneSignal : MonoBehaviour
     private void Awake()
     {
         StartCoroutine(DelayedFindPlayer());
+        Cursor.visible = false;
     }
 
     private IEnumerator DelayedFindPlayer()
@@ -33,7 +34,7 @@ public class ChangeSceneSignal : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player)
         {
-            Debug.LogError("Player not found in scene");
+            Debug.LogWarning("Player not found in scene");
             return;
         }
 
@@ -58,6 +59,12 @@ public class ChangeSceneSignal : MonoBehaviour
     private void FindRoleSwitcher()
     {
         roleSwitcher = GameObject.Find("SwitchRole");
+        if (roleSwitcher == null)
+        {
+            Debug.LogWarning("RoleSwitcher not found in scene");
+            return;
+        }
+
         RoleSwitcher roleSwitcherScript = roleSwitcher.GetComponent<RoleSwitcher>();
         roleSwitcherScript.canSwitch = false;
     }
