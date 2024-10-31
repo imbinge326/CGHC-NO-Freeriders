@@ -11,6 +11,8 @@ TagManager:
   - BossAttack
   - PauseUI
   - Unkillable
+  - Ground
+
   layers:
   - Default
   - TransparentFX

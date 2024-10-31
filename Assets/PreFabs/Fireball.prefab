@@ -13,6 +13,17 @@ GameObject:
   - component: {fileID: 4663560105352606542}
   - component: {fileID: 1704163240931284437}
   - component: {fileID: -809687927075274709}
+  - component: {fileID: -4456244067316892831}
+  - component: {fileID: 8810660095185894167}
+  - component: {fileID: 3815889644876115635}
+  - component: {fileID: 6295932586932590639}
+  - component: {fileID: -2580772957770098542}
+  - component: {fileID: 3543287162567111683}
+  - component: {fileID: 953564983552845438}
+  - component: {fileID: 6789478735878003037}
+  - component: {fileID: -3381833957715911292}
+  - component: {fileID: 751068070065733060}
+  - component: {fileID: -2823903770997579494}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: PlayerProjectile
@@ -102,7 +113,7 @@ MonoBehaviour:
   explosionRadius: 2
   explosionDamage: 50
   explosionEffect: {fileID: 0}
-  lifetime: 1
+  lifetime: 5
   targetTag: Enemy
 --- !u!58 &1704163240931284437
 CircleCollider2D:
@@ -166,3 +177,190 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4456244067316892831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348934520280199906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ee145c44039b54daea8f664bf3fc94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 2
+  explosionDamage: 50
+  explosionEffect: {fileID: 0}
+  lifetime: 5
+  targetTag: Enemy
+--- !u!114 &8810660095185894167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348934520280199906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ee145c44039b54daea8f664bf3fc94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 2
+  explosionDamage: 50
+  explosionEffect: {fileID: 0}
+  lifetime: 5
+  targetTag: Enemy
+--- !u!114 &3815889644876115635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348934520280199906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ee145c44039b54daea8f664bf3fc94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 2
+  explosionDamage: 50
+  explosionEffect: {fileID: 0}
+  lifetime: 5
+  targetTag: Enemy
+--- !u!114 &6295932586932590639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348934520280199906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ee145c44039b54daea8f664bf3fc94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 2
+  explosionDamage: 50
+  explosionEffect: {fileID: 0}
+  lifetime: 5
+  targetTag: Enemy
+--- !u!114 &-2580772957770098542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348934520280199906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ee145c44039b54daea8f664bf3fc94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 2
+  explosionDamage: 50
+  explosionEffect: {fileID: 0}
+  lifetime: 5
+  targetTag: Enemy
+--- !u!114 &3543287162567111683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348934520280199906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ee145c44039b54daea8f664bf3fc94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 2
+  explosionDamage: 50
+  explosionEffect: {fileID: 0}
+  lifetime: 5
+  targetTag: Enemy
+--- !u!114 &953564983552845438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348934520280199906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ee145c44039b54daea8f664bf3fc94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 2
+  explosionDamage: 50
+  explosionEffect: {fileID: 0}
+  lifetime: 5
+  targetTag: Enemy
+--- !u!114 &6789478735878003037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348934520280199906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ee145c44039b54daea8f664bf3fc94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 2
+  explosionDamage: 50
+  explosionEffect: {fileID: 0}
+  lifetime: 5
+  targetTag: Enemy
+--- !u!114 &-3381833957715911292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348934520280199906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ee145c44039b54daea8f664bf3fc94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 2
+  explosionDamage: 50
+  explosionEffect: {fileID: 0}
+  lifetime: 5
+  targetTag: Enemy
+--- !u!114 &751068070065733060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348934520280199906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ee145c44039b54daea8f664bf3fc94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 2
+  explosionDamage: 50
+  explosionEffect: {fileID: 0}
+  lifetime: 5
+  targetTag: Enemy
+--- !u!114 &-2823903770997579494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348934520280199906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ee145c44039b54daea8f664bf3fc94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 2
+  explosionDamage: 50
+  explosionEffect: {fileID: 0}
+  lifetime: 5
+  targetTag: Enemy
