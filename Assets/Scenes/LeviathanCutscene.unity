@@ -11923,7 +11923,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1157611421, guid: 9cc6286cffbc1614fba386ff7bca5635, type: 3}
-  m_Color: {r: 1, g: 0.10827984, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -13158,7 +13158,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1157611421, guid: 9cc6286cffbc1614fba386ff7bca5635, type: 3}
-  m_Color: {r: 0, g: 0.9716981, b: 0.030534917, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -18884,6 +18884,8 @@ PlayableDirector:
     value: {fileID: 522113943}
   - key: {fileID: -6523624216405335432, guid: 7a4d11b3ed7ccd74bb890cbb79c69d97, type: 2}
     value: {fileID: 1483292889}
+  - key: {fileID: -8602425493957182394, guid: 7a4d11b3ed7ccd74bb890cbb79c69d97, type: 2}
+    value: {fileID: 2099959416}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1746732990
@@ -19385,7 +19387,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1157611421, guid: 9cc6286cffbc1614fba386ff7bca5635, type: 3}
-  m_Color: {r: 0.3529412, g: 0, b: 0.9764706, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19491,7 +19493,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1157611421, guid: 9cc6286cffbc1614fba386ff7bca5635, type: 3}
-  m_Color: {r: 0, g: 0.011456013, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19728,7 +19730,8 @@ GameObject:
   - component: {fileID: 2099959414}
   - component: {fileID: 2099959413}
   - component: {fileID: 2099959412}
-  - component: {fileID: 2099959411}
+  - component: {fileID: 2099959416}
+  - component: {fileID: 2099959417}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19736,20 +19739,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2099959411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2099959410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc6154126805f14caafd75d1b9b4015, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smoothSpeed: 0.1
-  offset: {x: 0, y: 2, z: -1}
 --- !u!114 &2099959412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19869,6 +19858,43 @@ Transform:
   - {fileID: 1244546529}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2099959416
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099959410}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2099959417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099959410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16152ddf428c0f4785ef36cfb902461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0.5
+  shakeMagnitude: 0.1
+  dampingSpeed: 1
+  currentShakeDuration: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
