@@ -57,7 +57,8 @@ public class ChaiEnemy : MonoBehaviour
             // 停止追击动画
             if (animator != null)
             {
-                animator.SetBool("isChasing", false);
+                animator.ResetTrigger("isChasing");
+                animator.SetTrigger("isIdle");
             }
         }
 
@@ -65,8 +66,23 @@ public class ChaiEnemy : MonoBehaviour
         if (isChasing && distanceToPlayer <= attackRange && !isAttacking)
         {
             Debug.Log("Attacking!!!!!!!!!!");
-            // ***********************
-            // AttackPlayer();
+            if (animator != null)
+            {
+                animator.ResetTrigger("isIdle");
+                animator.ResetTrigger("isChasing");
+                animator.SetTrigger("isAttacking"); // 确保你的动画控制器有一个"Attack"触发器
+            }
+
+            AttackPlayer();
+        }
+        else
+        {
+            isAttacking = false;
+
+            if (animator != null)
+            {
+                animator.ResetTrigger("isAttacking");
+            }
         }
     }
 
@@ -88,32 +104,25 @@ public class ChaiEnemy : MonoBehaviour
         // 播放追击动画（如果有）
         if (animator != null)
         {
-            animator.SetBool("isChasing", true);
+            //animator.ResetTrigger("isIdle");
+            animator.SetTrigger("isChasing");
         }
     }
 
-    /*
-     ********************************************************
     // 攻击玩家的逻辑
     void AttackPlayer()
     {
+        isChasing = false;
         // 检查攻击冷却时间
         if (Time.time - lastAttackTime >= attackSpeed)
         {
-            // 播放攻击动画（如果有）
-            if (animator != null)
-            {
-                animator.SetTrigger("Attack"); // 确保你的动画控制器有一个"Attack"触发器
-            }
-
             // 标记为正在攻击，防止敌人在攻击过程中重复追击
             isAttacking = true;
 
             // 扣除玩家生命值（假设玩家有一个PlayerHealth脚本）
-            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
+            if (HealthManager.Instance != null)
             {
-                playerHealth.TakeDamage(attackPower);
+                HealthManager.Instance.TakeDamage(attackPower);
             }
 
             // 记录攻击时间
@@ -123,7 +132,6 @@ public class ChaiEnemy : MonoBehaviour
             StartCoroutine(AttackCooldown());
         }
     }
-    */
 
     // 攻击冷却逻辑
     IEnumerator AttackCooldown()
