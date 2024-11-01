@@ -69,6 +69,8 @@ public class FinalLevelManager : MonoBehaviour
         dynamitePickupTextObject.SetActive(false);
         getDynamiteTextObject.SetActive(false);
         bossRoomOpenedTextObject.SetActive(false);
+
+        SoundManager.Instance.StartFinalLevelBackgroundMusic();
     }
 
     private IEnumerator ShowDarkGodRuinsTextEffect()
