@@ -36,18 +36,6 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    public void Heal(float health)
-    {
-        sharedHealth += health;
-        healthBar.UpdateHealthBar(maxHealth, sharedHealth);
-        Debug.Log(gameObject.name + " took " + health + " damage. Remaining shared health: " + sharedHealth);
-
-        if (sharedHealth >= 100)
-        {
-            sharedHealth = 100;
-        }
-    }
-
     public void TakeDamage(float damage)
     {
         sharedHealth -= damage;

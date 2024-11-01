@@ -21,5 +21,9 @@ public class ItemPickup : MonoBehaviour
         Destroy(gameObject);
     }
 
-
+    void OnMouseDown()
+    {
+        Pickup();
+        //put trigger colliders on pickup
+    }
 }

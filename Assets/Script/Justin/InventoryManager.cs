@@ -12,7 +12,6 @@ public class InventoryManager : MonoBehaviour
     public GameObject inventoryItem;
     public GameObject inventoryUI; // 引用 Inventory UI
     public GameObject eventSystem; // 引用 EventSystem
-    public InventoryItemController[] inventoryItemsController;
 
     private void Awake()
     {
@@ -137,18 +136,6 @@ public class InventoryManager : MonoBehaviour
             GameObject obj = Instantiate(inventoryItem, itemContent);
             var itemName = obj.transform.Find("Item Name").GetComponent<TMP_Text>();
             itemName.text = items.itemName;
-        }
-
-        SetInventoryItems();
-    }
-
-    public void SetInventoryItems()
-    {
-        inventoryItemsController = itemContent.GetComponentsInChildren<InventoryItemController>();
-
-        for (int i = 0; i < itemsList.Count; i++)
-        {
-            inventoryItemsController[i].AddItemToController(itemsList[i]);
         }
     }
 }
