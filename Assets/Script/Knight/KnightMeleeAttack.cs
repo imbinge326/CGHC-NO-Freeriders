@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static AudioManager;
 
 public class KnightMeleeAttack : MonoBehaviour
 {
@@ -41,6 +40,8 @@ public class KnightMeleeAttack : MonoBehaviour
                 }
             }
         }
+
+        audioManager.PlaySFX(audioManager.swingSword);
     }
 
     // Flip the knight based on the mouse position
