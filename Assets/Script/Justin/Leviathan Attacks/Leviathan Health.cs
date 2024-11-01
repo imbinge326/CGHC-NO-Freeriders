@@ -30,9 +30,9 @@ public class LeviathanHealth : MonoBehaviour
         if (leviathanCurrentHealth <= 0)
         {
             justinLevelManager.leviathanKilled = true;
+            justinLevelManager.miniBossDoor = true;
             gameObject.SetActive(false);
             preChamber.SetActive(false);
-            postChamber.SetActive(true);
             wallsOne.SetActive(false);
             wallsTwo.SetActive(false);
             SceneManager.LoadScene(cutsceneName);
