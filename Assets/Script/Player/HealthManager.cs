@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-    private static HealthManager Instance;
+    public static HealthManager Instance;
     [SerializeField] private static float sharedHealth = 100f; // 静态变量，三个Prefab共用同一个生命值
     private float maxHealth = 100f;
     private HealthBar healthBar;
-
-    // Start is called before the first frame update
 
     void Awake()
     {
@@ -30,11 +28,15 @@ public class HealthManager : MonoBehaviour
         healthBar.UpdateHealthBar(maxHealth, sharedHealth);
     }
 
-    void Update()
+    public void Heal(float health)
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        sharedHealth += health;
+        healthBar.UpdateHealthBar(maxHealth, sharedHealth);
+        Debug.Log(gameObject.name + " took " + health + " damage. Remaining shared health: " + sharedHealth);
+
+        if (sharedHealth >= 100)
         {
-            TakeDamage(10);
+            sharedHealth = 100;
         }
     }
 
@@ -60,8 +62,14 @@ public class HealthManager : MonoBehaviour
         {
             Destroy(player);
         }
-        
-        //load death scene here
+
+        RoleSwitcher roleSwitcher = GameObject.Find("SwitchRole").GetComponent<RoleSwitcher>();
+        if (roleSwitcher == null)
+            Debug.LogError("SwitchRole not found in hierarchy");
+
+        roleSwitcher.canSwitch = false;
+
+        // Death UI below
     }
 
     // 返回当前的共享生命值
