@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static JustinLevelManager;
 
 public class LeviathanHealth : MonoBehaviour
 {
-    private float leviathanCurrentHealth;
+    [SerializeField] private float leviathanCurrentHealth = 0f;
     public GameObject preChamber;
     public GameObject postChamber;
     public GameObject wallsOne;
@@ -17,7 +18,6 @@ public class LeviathanHealth : MonoBehaviour
             gameObject.SetActive(false);
             gameObject.SetActive(false);
             preChamber.SetActive(false);
-            postChamber.SetActive(true);
             wallsOne.SetActive(false);
             wallsTwo.SetActive(false);
         }
@@ -35,6 +35,7 @@ public class LeviathanHealth : MonoBehaviour
             postChamber.SetActive(true);
             wallsOne.SetActive(false);
             wallsTwo.SetActive(false);
+            SceneManager.LoadScene(cutsceneName);
         }
     }
 }

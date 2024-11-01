@@ -12,17 +12,17 @@ TagManager:
   - PauseUI
   - Unkillable
   - Ground
-
+  - Leviathan
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Ground
-  - IgnoreEnemy
-  - Enemy
+  - 
+  - 
+  - 
   - 
   - 
   - 
