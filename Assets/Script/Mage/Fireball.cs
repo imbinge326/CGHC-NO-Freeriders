@@ -36,6 +36,15 @@ public class Fireball : MonoBehaviour
             }
         }
 
+        if (collision.gameObject.CompareTag("Leviathan"))
+        {
+            LeviathanHealth leviathanHealth = collision.gameObject.GetComponent<LeviathanHealth>();
+            if (!leviathanHealth)
+            {
+                leviathanHealth.TakeDamage(explosionDamage);
+            }
+        }
+
         Explode();
     }
 
