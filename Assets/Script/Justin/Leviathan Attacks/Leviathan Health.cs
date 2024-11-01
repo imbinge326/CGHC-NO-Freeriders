@@ -10,6 +10,8 @@ public class LeviathanHealth : MonoBehaviour
     public GameObject wallsOne;
     public GameObject wallsTwo;
     public string cutsceneName;
+    private Vector3 playerPosition;
+
 
     void Start()
     {
@@ -36,6 +38,22 @@ public class LeviathanHealth : MonoBehaviour
             wallsOne.SetActive(false);
             wallsTwo.SetActive(false);
             SceneManager.LoadScene(cutsceneName);
+
+            var player = GameObject.FindGameObjectWithTag("Player");
+
+            if (player == null)
+            {
+                Debug.LogWarning("Player not found!!");
+            }
+
+            if (player != null)
+            {
+                playerPosition = player.transform.position;
+            }
+
+            PlayerController playerController = player.GetComponent<PlayerController>();
+            playerController.playerPosition = playerPosition;
+            playerController.killLeviathanCutscene = true;
         }
     }
 }
