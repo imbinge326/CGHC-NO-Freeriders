@@ -28,11 +28,15 @@ public class HealthManager : MonoBehaviour
         healthBar.UpdateHealthBar(maxHealth, sharedHealth);
     }
 
-    void Update()
+    public void Heal(float health)
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        sharedHealth += health;
+        healthBar.UpdateHealthBar(maxHealth, sharedHealth);
+        Debug.Log(gameObject.name + " took " + health + " damage. Remaining shared health: " + sharedHealth);
+
+        if (sharedHealth >= 100)
         {
-            TakeDamage(10);
+            sharedHealth = 100;
         }
     }
 

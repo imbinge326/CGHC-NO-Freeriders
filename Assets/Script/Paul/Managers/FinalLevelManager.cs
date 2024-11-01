@@ -142,7 +142,7 @@ public class FinalLevelManager : MonoBehaviour
         // DEBUGGING
         if (Input.GetKey(KeyCode.L))
         {
-            SceneManager.LoadScene(7);
+            SceneManager.LoadScene("IntoFinalLevelCutscene");
         }
     }
 
