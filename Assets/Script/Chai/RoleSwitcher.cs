@@ -7,7 +7,7 @@ public class RoleSwitcher : MonoBehaviour
     public GameObject role3Prefab; // Assassin
     public bool canSwitch = true;
 
-    [SerializeField] private GameObject currentRole;
+    private GameObject currentRole;
     private string currentRoleType; // 用于记录当前的角色类型
 
     void Awake()
