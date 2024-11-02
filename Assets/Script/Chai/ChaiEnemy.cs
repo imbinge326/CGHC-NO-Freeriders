@@ -66,7 +66,7 @@ public class ChaiEnemy : MonoBehaviour
         {
             Debug.Log("Attacking!!!!!!!!!!");
             // ***********************
-            // AttackPlayer();
+            AttackPlayer();
         }
     }
 
@@ -92,8 +92,8 @@ public class ChaiEnemy : MonoBehaviour
         }
     }
 
-    /*
-     ********************************************************
+    //*
+    // ********************************************************
     // 攻击玩家的逻辑
     void AttackPlayer()
     {
@@ -105,25 +105,26 @@ public class ChaiEnemy : MonoBehaviour
             {
                 animator.SetTrigger("Attack"); // 确保你的动画控制器有一个"Attack"触发器
             }
-
+            
             // 标记为正在攻击，防止敌人在攻击过程中重复追击
             isAttacking = true;
-
+            /*
             // 扣除玩家生命值（假设玩家有一个PlayerHealth脚本）
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(attackPower);
             }
-
+            */
             // 记录攻击时间
             lastAttackTime = Time.time;
 
             // 启动冷却结束的计时器，1.5秒后恢复可以攻击状态
             StartCoroutine(AttackCooldown());
+            
         }
     }
-    */
+    //
 
     // 攻击冷却逻辑
     IEnumerator AttackCooldown()
