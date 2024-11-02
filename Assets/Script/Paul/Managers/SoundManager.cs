@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("Background Music")]
     [SerializeField] private AudioClip finalLevelBackgroundMusic;
+    [SerializeField] private AudioClip finalBossBackgroundMusic;
     [SerializeField] private float volume = 0.05f;
 
     [Header("Sound Effects")]
@@ -42,6 +43,15 @@ public class SoundManager : MonoBehaviour
         if (finalLevelBackgroundMusic != null)
         {
             backgroundMusicSource.clip = finalLevelBackgroundMusic;
+            backgroundMusicSource.Play();
+        }
+    }
+
+    public void StartFinalBossBGM()
+    {
+        if (finalBossBackgroundMusic != null)
+        {
+            backgroundMusicSource.clip = finalBossBackgroundMusic;
             backgroundMusicSource.Play();
         }
     }

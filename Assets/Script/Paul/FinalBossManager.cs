@@ -70,6 +70,7 @@ public class FinalBossManager : MonoBehaviour
     {
         godNovusPhase1Object.SetActive(true);
         StartCoroutine(StartAttack());
+        SoundManager.Instance.StartFinalBossBGM();
     }
 
     public void BossDies()
@@ -145,6 +146,11 @@ public class FinalBossManager : MonoBehaviour
 
     void Attack1()
     {
+        // Sound
+        SoundManager.Instance.PlaySoundEffect("ChargeUpSFX");
+        StartCoroutine(PlaySFXAfterSeconds("AnimeShingSFX", 1.8f));
+
+
         Vector3 positionToAttack = GetPlayerPosition();
         GameObject attackInstance = Instantiate(bossAttack1, positionToAttack, Quaternion.identity);
         Destroy(attackInstance, bossAtk1Lifetime);
@@ -152,6 +158,11 @@ public class FinalBossManager : MonoBehaviour
 
     void Attack2()
     {
+        // Sound
+        SoundManager.Instance.PlaySoundEffect("ChargeUpSFX");
+        StartCoroutine(PlaySFXAfterSeconds("FloorBreakSFX", 1.8f));
+
+
         Vector3 positionToAttack = GetPlayerPosition();
         GameObject attackInstance = Instantiate(bossAttack2, positionToAttack, Quaternion.identity);
         Destroy(attackInstance, bossAtk2Lifetime);
@@ -180,5 +191,12 @@ public class FinalBossManager : MonoBehaviour
         bossScript.isVulnerable = false;
 
         vulnerableIndicator.SetActive(false);
+    }
+
+    private IEnumerator PlaySFXAfterSeconds(string sfxName, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        SoundManager.Instance.PlaySoundEffect(sfxName);
     }
 }
