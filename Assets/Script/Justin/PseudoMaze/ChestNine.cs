@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using static JustinLevelManager;
 using static PseudoMazeManager;
+using static AudioManager;
 
 public class ChestNine : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class ChestNine : MonoBehaviour
 
         if (!pseudoMazeManager.chestNine)
         {
+            audioManager.PlaySFX(audioManager.openChest);
             toMiniBossWalls.SetActive(false);
             justinLevelManager.toMiniBossDoor = true;
             pseudoMazeManager.chestNine = true;

@@ -1,5 +1,6 @@
 using UnityEngine;
 using static PseudoMazeManager;
+using static AudioManager;
 
 public class ChestOne : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class ChestOne : MonoBehaviour
     {
         if (!pseudoMazeManager.chestOne)
         {
+            audioManager.PlaySFX(audioManager.openChest);
             Instantiate(explosion, transform.position, Quaternion.identity);
             pseudoMazeManager.chestOne = true;
         }

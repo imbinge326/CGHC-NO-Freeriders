@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static AudioManager;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Enemy : MonoBehaviour
         Debug.Log("Enemy took " + damage + " damage. Remaining health: " + health);
         if (health <= 0)
         {
+            audioManager.PlaySFX(audioManager.enemyDieSound);
             Destroy(gameObject);
         }
     }

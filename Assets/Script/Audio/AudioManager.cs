@@ -10,9 +10,11 @@ public class AudioManager : MonoBehaviour
     [Header ("-----Audio Clip-----")]
     public AudioClip backgroundMusic;
     public AudioClip hitSound;
-    public AudioClip dieSound;
+    public AudioClip enemyDieSound;
     public AudioClip swingSword;
     public AudioClip fireFireball;
+    public AudioClip openChest;
+    public AudioClip jumping;
 
     void Awake()
     {

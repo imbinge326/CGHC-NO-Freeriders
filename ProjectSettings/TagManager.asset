@@ -13,6 +13,7 @@ TagManager:
   - Unkillable
   - Ground
   - Leviathan
+  - Interact
   layers:
   - Default
   - TransparentFX
