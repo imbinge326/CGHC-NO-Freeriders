@@ -3,9 +3,9 @@ using System.Collections;
 
 public class ChaiEnemy : MonoBehaviour
 {
-    public int hp = 100; // Enemy health
+    public float hp = 100; // Enemy health
     public float attackSpeed = 1.5f; // Attack cooldown
-    public int attackPower = 10; // Attack power
+    public float attackPower = 10; // Attack power
     public float attackRange = 1f; // Attack range
     public float walkSpeed = 2f; // Walking speed
     public float detectionRange = 5f; // Detection distance
@@ -142,7 +142,7 @@ public class ChaiEnemy : MonoBehaviour
     }
 
     // Enemy takes damage
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         hp -= damage;
         if (hp <= 0)

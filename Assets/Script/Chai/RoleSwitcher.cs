@@ -21,7 +21,7 @@ public class RoleSwitcher : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-    }
+    }//
 
     void Update()
     {
