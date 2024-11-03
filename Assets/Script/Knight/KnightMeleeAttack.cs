@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static AudioManager;
 
 public class KnightMeleeAttack : MonoBehaviour
 {
@@ -8,6 +7,7 @@ public class KnightMeleeAttack : MonoBehaviour
     [SerializeField] private float attackDamage = 20f; // Damage per melee attack
     [SerializeField] private Transform attackPoint; // Reference to the position where the attack happens
     [SerializeField] private string enemyTag = "Enemy"; // Tag to identify enemies
+    public Animator animator;
     private bool isFacingRight = true;
 
     private void Update()
@@ -19,6 +19,7 @@ public class KnightMeleeAttack : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) // Left click to attack
         {
             MeleeAttack();
+            animator.SetTrigger("Attack");
         }
     }
 
@@ -41,6 +42,8 @@ public class KnightMeleeAttack : MonoBehaviour
                 }
             }
         }
+
+        audioManager.PlaySFX(audioManager.swingSword);
     }
 
     // Flip the knight based on the mouse position

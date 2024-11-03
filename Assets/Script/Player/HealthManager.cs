@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using static AudioManager;
 
 public class HealthManager : MonoBehaviour
 {
@@ -44,6 +43,7 @@ public class HealthManager : MonoBehaviour
     {
         sharedHealth -= damage;
         healthBar.UpdateHealthBar(maxHealth, sharedHealth);
+        audioManager.PlaySFX(audioManager.hitSound);
         Debug.Log(gameObject.name + " took " + damage + " damage. Remaining shared health: " + sharedHealth);
 
         if (sharedHealth <= 0)

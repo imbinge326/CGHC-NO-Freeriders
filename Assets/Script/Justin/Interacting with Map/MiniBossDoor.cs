@@ -7,7 +7,7 @@ public class MiniBossDoor : MonoBehaviour
 {
     void Start()
     {
-        if (justinLevelManager.miniBossDoor == true)
+        if (justinLevelManager.miniBossDoor)
         {
             gameObject.SetActive(false);
         }

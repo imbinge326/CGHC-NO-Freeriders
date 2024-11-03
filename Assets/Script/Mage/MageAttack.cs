@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static AudioManager;
 
 public class MageAttack : MonoBehaviour
 {
@@ -53,6 +52,8 @@ public class MageAttack : MonoBehaviour
         {
             fireballScript.Setup(explosionRadius, explosionDamage);
         }
+
+        audioManager.PlaySFX(audioManager.fireFireball);
     }
 
     private void FaceMouseDirection()

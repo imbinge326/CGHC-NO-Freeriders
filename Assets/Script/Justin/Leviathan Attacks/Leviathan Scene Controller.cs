@@ -23,7 +23,7 @@ public class LeviathanSceneController : MonoBehaviour
 
             if (playerRb != null)
             {
-                playerRb.constraints = RigidbodyConstraints2D.None;
+                playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
             else
             {

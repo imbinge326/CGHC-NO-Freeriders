@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LeviathanCutscene.unity
     guid: a55afc723719c33478f78ff71bc395e5
+  - enabled: 1
+    path: Assets/Scenes/LeviathanKilledCutscene.unity
+    guid: a47566b45460874479c286aabe31ddba
   m_configObjects: {}
