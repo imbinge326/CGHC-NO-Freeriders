@@ -17,10 +17,9 @@ public class RoleSwitcher : MonoBehaviour
         if (currentRole == null)
         {
             SwitchRole(role1Prefab, "Knight");
-            Debug.LogWarning("spawned");
         }
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     void Update()

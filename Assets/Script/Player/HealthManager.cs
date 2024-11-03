@@ -46,9 +46,13 @@ public class HealthManager : MonoBehaviour
         healthBar.UpdateHealthBar(maxHealth, sharedHealth);
         Debug.Log(gameObject.name + " took " + damage + " damage. Remaining shared health: " + sharedHealth);
 
-        if (sharedHealth <= 0)
+        if (sharedHealth < 0.001f)
         {
-            Die();
+            var spawn = GameObject.Find("SpawnPoint");
+            var player = GameObject.FindGameObjectWithTag("Player");
+            player.transform.position = spawn.transform.position;
+            sharedHealth = 100f;
+            healthBar.UpdateHealthBar(maxHealth, sharedHealth);
         }
     }
 

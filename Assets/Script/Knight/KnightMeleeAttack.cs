@@ -33,7 +33,7 @@ public class KnightMeleeAttack : MonoBehaviour
         {
             if (hitCollider.CompareTag(enemyTag)) // Check if the object has the enemy tag
             {
-                Enemy enemyScript = hitCollider.GetComponent<Enemy>(); // Get the enemy's health component
+                ChaiEnemy enemyScript = hitCollider.GetComponent<ChaiEnemy>(); // Get the enemy's health component
                 if (enemyScript != null)
                 {
                     enemyScript.TakeDamage(attackDamage); // Apply damage to the enemy
