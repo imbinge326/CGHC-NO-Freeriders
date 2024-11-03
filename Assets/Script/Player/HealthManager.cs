@@ -16,6 +16,8 @@ public class HealthManager : MonoBehaviour
             return;
         }
         Instance = this;
+
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
@@ -46,9 +48,14 @@ public class HealthManager : MonoBehaviour
         audioManager.PlaySFX(audioManager.hitSound);
         Debug.Log(gameObject.name + " took " + damage + " damage. Remaining shared health: " + sharedHealth);
 
-        if (sharedHealth <= 0)
+        if (sharedHealth < 0.01f)
         {
-            Die();
+            var player = GameObject.FindGameObjectWithTag("Player");
+            var spawn = GameObject.FindGameObjectWithTag("SpawnPoint");
+
+            player.transform.position = spawn.transform.position;
+            sharedHealth = 100;
+            healthBar.UpdateHealthBar(maxHealth, sharedHealth);
         }
     }
 

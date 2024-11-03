@@ -33,7 +33,10 @@ public class Interactor : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             IsInRange = false;
-            interactText.SetActive(false);
+            if (interactText != null)
+            {
+                interactText.SetActive(false);
+            }
         }
     }
 }
