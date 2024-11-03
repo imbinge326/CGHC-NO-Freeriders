@@ -28,8 +28,6 @@ public class Invisible : MonoBehaviour
     IEnumerator BecomeInvisible()
     {
         isInvisible = true;
-        gameObject.layer = LayerMask.NameToLayer("IgnoreEnemy"); // 切换到 IgnoreEnemy 层
-        Debug.Log("Current Layer: " + gameObject.layer); // 打印当前层级
 
         // 使角色透明
         Color color = spriteRenderer.color;
@@ -40,10 +38,6 @@ public class Invisible : MonoBehaviour
 
         // 等待指定的时间
         yield return new WaitForSeconds(time);
-
-        // 隐身结束后，将角色的层切换回 Player 层
-        gameObject.layer = LayerMask.NameToLayer("Player");
-        Debug.Log("Current Layer: " + gameObject.layer); // 打印当前层级
 
         // 恢复可见性
         color.a = 1f;

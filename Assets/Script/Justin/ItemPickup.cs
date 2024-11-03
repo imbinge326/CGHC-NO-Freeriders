@@ -16,14 +16,9 @@ public class ItemPickup : MonoBehaviour
 
     public void Pickup()
     {
-        InventoryManager.Instance.AddItems(items);
         GameManager.Instance.CollectItem(items.itemID);
         Destroy(gameObject);
     }
 
-    void OnMouseDown()
-    {
-        Pickup();
-        //put trigger colliders on pickup
-    }
+
 }

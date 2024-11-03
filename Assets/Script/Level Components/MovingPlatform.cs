@@ -11,10 +11,12 @@ public class MovingPlatform : MonoBehaviour
     private Vector3 previousPosition; // Store the platform's previous position for calculating delta
 
     public bool startMoving = false; // Control to start/stop platform movement
+    public bool waitBeforeMoving = false; // Option to wait before moving to the next waypoint
+    public float waitTime = 1f; // Duration to wait before moving to the next waypoint
 
-    private bool playerIsOnPlatform = false; // Is the player standing on the platform
-    private GameObject player; // Reference to the player GameObject
-    private Rigidbody2D playerRb; // Reference to the player's Rigidbody2D
+    private HashSet<Rigidbody2D> objectsOnPlatform = new HashSet<Rigidbody2D>(); // Track all objects on the platform
+    private bool isWaiting = false; // Indicates whether the platform is waiting
+    private float waitTimer = 0f; // Timer for waiting period
 
     private void Start()
     {
@@ -33,14 +35,34 @@ public class MovingPlatform : MonoBehaviour
     {
         if (!startMoving || globalWaypoints.Length == 0) return; // Only move if startMoving is true
 
+        // Check if the platform is waiting
+        if (isWaiting)
+        {
+            waitTimer += Time.deltaTime; // Increment wait timer
+            if (waitTimer >= waitTime) // Check if wait time has elapsed
+            {
+                isWaiting = false; // Stop waiting
+                waitTimer = 0f; // Reset wait timer
+                currentWaypointIndex = (currentWaypointIndex + 1) % globalWaypoints.Length; // Update to the next waypoint
+            }
+            return; // Exit Update if the platform is still waiting
+        }
+
         // Move the platform towards the current waypoint
         Vector2 targetPosition = globalWaypoints[currentWaypointIndex];
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, platformSpeed * Time.deltaTime);
 
-        // If platform reaches the current waypoint, update to the next waypoint
+        // If platform reaches the current waypoint, check for waiting
         if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
         {
-            currentWaypointIndex = (currentWaypointIndex + 1) % globalWaypoints.Length; // Loop back to the first waypoint after reaching the last one
+            if (waitBeforeMoving)
+            {
+                isWaiting = true; // Start waiting if the option is enabled
+            }
+            else
+            {
+                currentWaypointIndex = (currentWaypointIndex + 1) % globalWaypoints.Length; // Move immediately to the next waypoint
+            }
         }
     }
 
@@ -50,33 +72,39 @@ public class MovingPlatform : MonoBehaviour
         Vector3 platformDelta = transform.position - previousPosition;
         previousPosition = transform.position; // Update previous position for the next frame
 
-        // If the player is on the platform, move them by the platform's delta
-        if (playerIsOnPlatform && player != null)
+        // Move all objects on the platform by the platform's delta
+        foreach (var rb in objectsOnPlatform)
         {
-            // Move the player's Rigidbody2D with the platform's delta
-            playerRb.position += (Vector2)platformDelta;
+            if (rb != null) // Ensure the Rigidbody2D is still valid
+            {
+                rb.position += (Vector2)platformDelta; // Move the object's Rigidbody2D with the platform's delta
+            }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the player has landed on the platform
-        if (collision.gameObject.CompareTag("Player"))
+        // Check if the object is tagged "Player" or "Unkillable"
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Unkillable"))
         {
-            playerIsOnPlatform = true;
-            player = collision.gameObject;
-            playerRb = player.GetComponent<Rigidbody2D>(); // Get the player's Rigidbody2D
+            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                objectsOnPlatform.Add(rb); // Add the object's Rigidbody2D to the set
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        // Check if the player has left the platform
-        if (collision.gameObject.CompareTag("Player"))
+        // Check if the object is tagged "Player" or "Unkillable"
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Unkillable"))
         {
-            playerIsOnPlatform = false;
-            player = null;
-            playerRb = null; // Clear the reference to the player's Rigidbody2D
+            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                objectsOnPlatform.Remove(rb); // Remove the object's Rigidbody2D from the set
+            }
         }
     }
 

@@ -7,6 +7,12 @@ TagManager:
   - Enemy
   - Portal
   - Wall
+  - PlayerProjectile
+  - BossAttack
+  - PauseUI
+  - Unkillable
+  - Ground
+
   layers:
   - Default
   - TransparentFX
@@ -17,7 +23,7 @@ TagManager:
   - Ground
   - IgnoreEnemy
   - Enemy
-  - Wall
+  - 
   - 
   - 
   - 
