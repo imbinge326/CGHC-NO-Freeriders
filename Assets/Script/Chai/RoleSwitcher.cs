@@ -20,8 +20,8 @@ public class RoleSwitcher : MonoBehaviour
             Debug.LogWarning("spawned");
         }
 
-        DontDestroyOnLoad(gameObject);
-    }//
+        //DontDestroyOnLoad(gameObject);
+    }
 
     void Update()
     {

@@ -16,7 +16,6 @@ public class LeviathanChangeScene : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f); // Wait for 1 second
         FindPlayer();
-        FindRoleSwitcher();
     }
 
     private void FindPlayer()
@@ -38,12 +37,5 @@ public class LeviathanChangeScene : MonoBehaviour
         {
             Debug.LogWarning("Player does not have a Rigidbody2D component.");
         }
-    }
-
-    private void FindRoleSwitcher()
-    {
-        roleSwitcher = GameObject.Find("SwitchRole");
-        RoleSwitcher roleSwitcherScript = roleSwitcher.GetComponent<RoleSwitcher>();
-        roleSwitcherScript.canSwitch = false;
     }
 }

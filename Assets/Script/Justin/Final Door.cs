@@ -11,6 +11,10 @@ public class FinalDoor : MonoBehaviour
         {
             gameObject.SetActive(true);
         }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 
