@@ -15,6 +15,7 @@ public class Lever : MonoBehaviour
     {
         promptText.SetActive(false);
     }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -24,7 +25,7 @@ public class Lever : MonoBehaviour
 
             promptText.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.T))
+            if (Input.GetKey(KeyCode.T))
             {
                 flipped = true;
                 promptText.SetActive(false);
@@ -32,6 +33,7 @@ public class Lever : MonoBehaviour
                 spriteRend.sprite = flippedSprite;
 
                 FinalLevelManager.Instance.FlipLever();
+                SoundManager.Instance.PlaySoundEffect("LeverSFX");
             }
         }
     }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using static PseudoMazeManager;
+using static AudioManager;
 
 public class ChestFour : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class ChestFour : MonoBehaviour
     {
         if (!pseudoMazeManager.chestFour)
         {
+            audioManager.PlaySFX(audioManager.openChest);
             movingPlatformTwo.SetActive(true);
             pseudoMazeManager.chestFour = true;
         }

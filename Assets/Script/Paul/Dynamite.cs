@@ -13,6 +13,7 @@ public class Dynamite : MonoBehaviour
         if (Application.isPlaying && gameObject.scene.isLoaded)
         {
             FinalLevelManager.Instance.OnDynamitePickup();
+            SoundManager.Instance.PlaySoundEffect("PickupSFX");
         }
     }
 }

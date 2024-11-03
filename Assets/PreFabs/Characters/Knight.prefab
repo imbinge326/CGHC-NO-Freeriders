@@ -72,13 +72,13 @@ GameObject:
   m_Component:
   - component: {fileID: 940185367818699420}
   - component: {fileID: 2692199112287140695}
-  - component: {fileID: 4914354155977375593}
   - component: {fileID: 433877657838503802}
   - component: {fileID: 3449054691566336795}
+  - component: {fileID: -3015109767201565117}
   - component: {fileID: 6704224298232127852}
+  - component: {fileID: 4914354155977375593}
   - component: {fileID: 4008336065066893711}
   - component: {fileID: 197366040609629003}
-  - component: {fileID: -3015109767201565117}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -143,7 +143,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: -545449468, guid: 7a7ff5a894ab96d42abdd9104fad7ea3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -155,6 +155,73 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &433877657838503802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4699075559353984421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa18d619f5dc5645a040a69d9fcad06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  jumpingPower: 20
+  rb: {fileID: 4914354155977375593}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  wallRaycastDistance: 1
+  groundRaycastDistance: 1
+--- !u!114 &3449054691566336795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4699075559353984421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b7b27790ab6014a9ee50a991b87c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 1
+  attackDamage: 20
+  attackPoint: {fileID: 7259273874160880847}
+  enemyTag: Enemy
+  animator: {fileID: 4008336065066893711}
+--- !u!114 &-3015109767201565117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4699075559353984421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48ac4ebfa3c47f458a347230aad7247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useReturnPoint: 0
+--- !u!114 &6704224298232127852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4699075559353984421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61de51cd1f6c803468a95595435ea3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallTag: Wall
+  breakEffect: {fileID: 0}
 --- !u!50 &4914354155977375593
 Rigidbody2D:
   serializedVersion: 4
@@ -182,57 +249,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &433877657838503802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4699075559353984421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aa18d619f5dc5645a040a69d9fcad06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  jumpingPower: 10
-  rb: {fileID: 4914354155977375593}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  wallRaycastDistance: 1
-  groundRaycastDistance: 1
-  edgeOffset: 0.5
---- !u!114 &3449054691566336795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4699075559353984421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51b7b27790ab6014a9ee50a991b87c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 1
-  attackDamage: 20
-  attackPoint: {fileID: 7259273874160880847}
-  enemyTag: Enemy
---- !u!114 &6704224298232127852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4699075559353984421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61de51cd1f6c803468a95595435ea3c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallTag: Wall
-  breakEffect: {fileID: 0}
 --- !u!95 &4008336065066893711
 Animator:
   serializedVersion: 5
@@ -289,18 +305,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.10499999
---- !u!114 &-3015109767201565117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4699075559353984421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e48ac4ebfa3c47f458a347230aad7247, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useReturnPoint: 0
-  cutsceneLoad: 0
-  playerPosition: {x: 0, y: 0, z: 0}
