@@ -8,10 +8,15 @@ public class KnightMeleeAttack : MonoBehaviour
     [SerializeField] private Transform attackPoint; // Reference to the position where the attack happens
     [SerializeField] private string enemyTag = "Enemy"; // Tag to identify enemies
     public Animator animator;
+    public bool isInCutscene = false;
     private bool isFacingRight = true;
 
     private void Update()
     {
+        // Prevent Input when in cutscene
+        if (isInCutscene)
+            return;
+
         // Flip the knight based on the mouse position
         FlipBasedOnMouse();
 

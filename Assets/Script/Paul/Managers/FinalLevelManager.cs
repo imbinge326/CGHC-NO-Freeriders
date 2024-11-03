@@ -167,6 +167,18 @@ public class FinalLevelManager : MonoBehaviour
             return;
         }
 
+        MageAttack mageAttack = player.GetComponent<MageAttack>();
+        if (mageAttack != null)
+        {
+            mageAttack.isInCutscene = false;
+        }
+
+        KnightMeleeAttack knightMeleeAttack = player.GetComponent<KnightMeleeAttack>();
+        if (knightMeleeAttack != null)
+        {
+            knightMeleeAttack.isInCutscene = false;
+        }
+
         PlayerController playerController = player.GetComponent<PlayerController>();
         if (playerController == null)
             Debug.LogError("Player has no PlayerController");
