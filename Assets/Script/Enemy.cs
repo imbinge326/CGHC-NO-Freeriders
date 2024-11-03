@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static AudioManager;
 
 public class Enemy : MonoBehaviour
 {
@@ -141,6 +142,8 @@ public class Enemy : MonoBehaviour
         if (hp <= 0)
         {
             Die();
+            audioManager.PlaySFX(audioManager.enemyDieSound);
+            Destroy(gameObject);
         }
     }
 

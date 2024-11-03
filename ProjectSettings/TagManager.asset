@@ -11,16 +11,19 @@ TagManager:
   - BossAttack
   - PauseUI
   - Unkillable
+  - Ground
+  - Leviathan
+  - Interact
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Ground
-  - IgnoreEnemy
-  - Enemy
+  - 
+  - 
+  - 
   - 
   - 
   - 

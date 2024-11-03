@@ -1,5 +1,6 @@
 using UnityEngine;
 using static PseudoMazeManager;
+using static AudioManager;
 
 public class ChestSeven : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class ChestSeven : MonoBehaviour
     {
         if (!pseudoMazeManager.chestSeven)
         {
+            audioManager.PlaySFX(audioManager.openChest);
             bridge.SetActive(true);
             pseudoMazeManager.chestSeven = true;
         }

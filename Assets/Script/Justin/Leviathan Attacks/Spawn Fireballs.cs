@@ -16,7 +16,7 @@ public class SpawnFireballs : MonoBehaviour
         while (true)
         {
             FireFireball();
-            interval = Random.Range(3, 6);
+            interval = Random.Range(0.2f, 3);
             yield return new WaitForSeconds(interval);
         }
     }

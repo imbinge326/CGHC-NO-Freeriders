@@ -9,5 +9,9 @@ public class PostLeviathan : MonoBehaviour
         {
             gameObject.SetActive(true);
         }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
