@@ -6,6 +6,7 @@ public class Interactor : MonoBehaviour
     public bool IsInRange;
     public UnityEvent InteractAction;
     private KeyCode InteractKey = KeyCode.F;
+    public GameObject interactText;
     
 
     void Update()
@@ -23,6 +24,7 @@ public class Interactor : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             IsInRange = true;
+            interactText.SetActive(true);
         }
     }
 
@@ -31,6 +33,10 @@ public class Interactor : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             IsInRange = false;
+            if (interactText != null)
+            {
+                interactText.SetActive(false);
+            }
         }
     }
 }

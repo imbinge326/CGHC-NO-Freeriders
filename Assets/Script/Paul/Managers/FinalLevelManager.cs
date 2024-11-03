@@ -38,6 +38,8 @@ public class FinalLevelManager : MonoBehaviour
     private GameObject bossRoomDoor;
     [SerializeField]
     private GameObject blockExit;
+    [SerializeField]
+    private GameObject explosionParticleObject;
 
     private GameObject player;
     private GameObject roleSwitcher;
@@ -69,6 +71,9 @@ public class FinalLevelManager : MonoBehaviour
         dynamitePickupTextObject.SetActive(false);
         getDynamiteTextObject.SetActive(false);
         bossRoomOpenedTextObject.SetActive(false);
+        explosionParticleObject.SetActive(false);
+
+        SoundManager.Instance.StartFinalLevelBackgroundMusic();
     }
 
     private IEnumerator ShowDarkGodRuinsTextEffect()
@@ -229,6 +234,9 @@ public class FinalLevelManager : MonoBehaviour
     public void UseDynamite()
     {
         floorBreakTilemap.SetActive(false);
+        explosionParticleObject.SetActive(true);
+
+        StartCoroutine(DeactivateObjectAfterSeconds(explosionParticleObject, 0.75f));
     }
 
     public void FlipLever()

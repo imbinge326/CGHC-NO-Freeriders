@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 8667657804374690457}
   - component: {fileID: 3763495861795758956}
   - component: {fileID: 6208120510860756329}
+  - component: {fileID: 35437179775010039}
   m_Layer: 0
   m_Name: Normal Enemy
   m_TagString: Enemy
@@ -427,9 +428,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.19017792, y: 0.024381638}
+  m_Offset: {x: -0.2, y: 0}
   serializedVersion: 2
-  m_Radius: 0.7659359
+  m_Radius: 1.1
 --- !u!114 &6208120510860756329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,10 +444,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
-  attackSpeed: 1
-  attackPower: 1
+  attackSpeed: 2.5
+  attackPower: 3
   attackRange: 2.5
   walkSpeed: 2
   detectionRange: 7.5
   isChasing: 0
   isAttacking: 0
+--- !u!50 &35437179775010039
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8195765508531803516}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

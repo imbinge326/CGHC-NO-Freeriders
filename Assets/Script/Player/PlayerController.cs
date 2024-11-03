@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     // 用于区分玩家是否是从上一场景或下一场景传送过来的
     public bool useReturnPoint = false;
     public bool cutsceneLoad = false;
+    public bool leviathanCutscene = false;
+    public bool killLeviathanCutscene = false;
     public Vector3 playerPosition;
 
     private void OnEnable()
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         GameObject spawnPoint;
 
-        if (cutsceneLoad)
+        if (cutsceneLoad || leviathanCutscene || killLeviathanCutscene)
         {
             transform.position = playerPosition;
             return;

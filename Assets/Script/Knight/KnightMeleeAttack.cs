@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static AudioManager;
 
 public class KnightMeleeAttack : MonoBehaviour
 {
@@ -35,7 +34,7 @@ public class KnightMeleeAttack : MonoBehaviour
         {
             if (hitCollider.CompareTag(enemyTag)) // Check if the object has the enemy tag
             {
-                Enemy enemyScript = hitCollider.GetComponent<Enemy>(); // Get the enemy's health component
+                ChaiEnemy enemyScript = hitCollider.GetComponent<ChaiEnemy>(); // Get the enemy's health component
                 if (enemyScript != null)
                 {
                     enemyScript.TakeDamage(attackDamage); // Apply damage to the enemy
@@ -43,6 +42,8 @@ public class KnightMeleeAttack : MonoBehaviour
                 }
             }
         }
+
+        audioManager.PlaySFX(audioManager.swingSword);
     }
 
     // Flip the knight based on the mouse position
