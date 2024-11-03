@@ -127,6 +127,7 @@ public class ChaiEnemy : MonoBehaviour
 
             // Start cooldown timer, 1.5 seconds before able to attack again
             StartCoroutine(AttackCooldown());
+            
         }
     }
 
