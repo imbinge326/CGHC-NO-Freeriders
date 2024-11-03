@@ -10,6 +10,7 @@ public class JustinLevelManager : MonoBehaviour
     public bool toMiniBossDoor;
     public bool pseudoMazeBridge;
     public bool leviathanKilled;
+    public bool finalChest;
 
     public void Awake()
     {

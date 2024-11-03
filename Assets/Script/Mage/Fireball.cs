@@ -29,7 +29,7 @@ public class Fireball : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            ChaiEnemy enemy = collision.gameObject.GetComponent<ChaiEnemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(explosionDamage);
