@@ -38,6 +38,18 @@ public class ChangeSceneSignal : MonoBehaviour
             return;
         }
 
+        MageAttack mageAttack = player.GetComponent<MageAttack>();
+        if (mageAttack != null)
+        {
+            mageAttack.isInCutscene = true;
+        }
+
+        KnightMeleeAttack knightMeleeAttack = player.GetComponent<KnightMeleeAttack>();
+        if (knightMeleeAttack != null)
+        {
+            knightMeleeAttack.isInCutscene = true;
+        }
+
         Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
         if (playerRb != null)
         {
@@ -55,6 +67,7 @@ public class ChangeSceneSignal : MonoBehaviour
             Debug.LogWarning("Player does not have a Rigidbody2D component.");
         }
     }
+
 
     private void FindRoleSwitcher()
     {

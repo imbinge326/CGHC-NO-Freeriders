@@ -143,7 +143,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -545449468, guid: 7a7ff5a894ab96d42abdd9104fad7ea3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -167,17 +167,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa18d619f5dc5645a040a69d9fcad06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpingPower: 20
+  speed: 5
+  jumpingPower: 10
   rb: {fileID: 4914354155977375593}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 512
   wallRaycastDistance: 1
   groundRaycastDistance: 1
+  edgeOffset: 0.5
 --- !u!114 &3449054691566336795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +206,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useReturnPoint: 0
+  cutsceneLoad: 0
+  leviathanCutscene: 0
+  killLeviathanCutscene: 0
+  playerPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &6704224298232127852
 MonoBehaviour:
   m_ObjectHideFlags: 0

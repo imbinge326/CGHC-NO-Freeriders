@@ -13,10 +13,16 @@ public class MageAttack : MonoBehaviour
     [SerializeField] private Vector2 firePointOffsetLeft = new Vector2(-0.5f, 0.1f);  // Offset when facing left
     [SerializeField] private float shootingCooldown = 0.2f;  // Adjustable cooldown in seconds
 
+    public bool isInCutscene = false;
+
     private float nextFireTime = 0f;  // Time when the player can fire again
 
     void Update()
     {
+        // Prevent Input when in cutscene
+        if (isInCutscene)
+            return;
+
         FaceMouseDirection();
 
         if (Input.GetMouseButtonDown(0) && Time.time >= nextFireTime)
