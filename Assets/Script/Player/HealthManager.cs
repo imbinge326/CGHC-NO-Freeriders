@@ -7,6 +7,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private static float sharedHealth = 100f; // 静态变量，三个Prefab共用同一个生命值
     private float maxHealth = 100f;
     private HealthBar healthBar;
+    public GameObject spawn;
 
     void Awake()
     {
@@ -16,8 +17,6 @@ public class HealthManager : MonoBehaviour
             return;
         }
         Instance = this;
-
-        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
@@ -51,7 +50,6 @@ public class HealthManager : MonoBehaviour
         if (sharedHealth < 0.01f)
         {
             var player = GameObject.FindGameObjectWithTag("Player");
-            var spawn = GameObject.FindGameObjectWithTag("SpawnPoint");
 
             player.transform.position = spawn.transform.position;
             sharedHealth = 100;
