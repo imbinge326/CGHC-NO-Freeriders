@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 5
+  cooldown: 50
   isInvisible: 0
 --- !u!114 &2394064773074730773
 MonoBehaviour:
@@ -224,6 +225,7 @@ MonoBehaviour:
   attackPoint: {fileID: 4802393264590563637}
   enemyTag: Enemy
   animator: {fileID: 3461312527349689654}
+  isInCutscene: 0
 --- !u!95 &3461312527349689654
 Animator:
   serializedVersion: 5
