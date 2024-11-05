@@ -25,7 +25,7 @@ public class PauseManager : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Keep this object across scenes
+            //DontDestroyOnLoad(gameObject); // Keep this object across scenes
         }
     }
 

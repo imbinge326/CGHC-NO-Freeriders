@@ -10,14 +10,13 @@ public class CooldownManager : MonoBehaviour
     private float cooldownTimer = 0f;
     private bool isCooldownActive = false;
 
-    public TextMeshProUGUI cooldownMessage; // 引用 TextMeshProUGUI 组件
+    public TMP_Text cooldownMessage; // 引用 TextMeshProUGUI 组件
 
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -27,9 +26,6 @@ public class CooldownManager : MonoBehaviour
 
     void Start()
     {
-        // 找到场景中的 CooldownMessage UI 元素
-        cooldownMessage = GameObject.Find("CooldownMessage").GetComponent<TextMeshProUGUI>();
-
         // 初始隐藏冷却提示文本
         if (cooldownMessage != null)
         {
