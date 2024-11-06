@@ -21,7 +21,7 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
-        //healthBar = GameObject.Find("Health Bar").GetComponent<HealthBar>();
+        healthBar = GameObject.Find("Health Bar").GetComponent<HealthBar>();
 
         // 在游戏开始时，将静态共享的健康值设定为最大生命值
         sharedHealth = maxHealth;
