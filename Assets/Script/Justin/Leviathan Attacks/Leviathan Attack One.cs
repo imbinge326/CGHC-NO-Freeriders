@@ -3,7 +3,7 @@ using UnityEngine;
 public class LeviathanAttackOne : MonoBehaviour
 {
     private float interval = 0.75f;
-    private float damage;
+    private float damage = 5f;
     private bool damageDealt;
 
     public void Start()

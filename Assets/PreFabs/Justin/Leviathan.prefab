@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 9027450532343665147}
   - component: {fileID: 6532245095040796502}
   - component: {fileID: 4118426235701053057}
+  - component: {fileID: 7379247567331755874}
   - component: {fileID: 6144728826147719679}
   m_Layer: 0
   m_Name: Leviathan
-  m_TagString: Untagged
+  m_TagString: Leviathan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,6 +108,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7379247567331755874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4934880801436170502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ed0b1ee4827b241b22979854d20253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leviathanCurrentHealth: 750
+  preChamber: {fileID: 0}
+  postChamber: {fileID: 0}
+  wallsOne: {fileID: 0}
+  wallsTwo: {fileID: 0}
+  cutsceneName: LeviathanKilledCutscene
 --- !u!58 &6144728826147719679
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,7 +155,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
